@@ -23,3 +23,10 @@ aidlc/spaces/*/intents/*/.aidlc-*
 aidlc/diagnostics/
 .claude/settings.local.json
 # END AI-DLC:gitignore
+
+# Python / app runtime
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+data/
+*.pyc

@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quản lý vận hành robot</title>
+<style>
+  :root { --bg:#f3f5f9; --card:#ffffff; --text:#172033; --muted:#667085; --line:#e4e7ee;
+          --ok:#16a34a; --err:#dc2626; --run:#2563eb; --warn:#d97706; --accent:#2563eb;
+          --ok-bg:#e8f7ee; --err-bg:#fdecec; --run-bg:#e8f0fe; --idle-bg:#eef0f4;
+          --shadow:0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.08); }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0f1218; --card:#171b23; --text:#e8ebf2; --muted:#98a2b3; --line:#283040;
+            --ok:#4ade80; --err:#f87171; --run:#60a5fa; --warn:#fbbf24; --accent:#60a5fa;
+            --ok-bg:#12301f; --err-bg:#3a1618; --run-bg:#14274a; --idle-bg:#222836;
+            --shadow:none; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font:14px/1.5 system-ui, "Segoe UI", Roboto, sans-serif; }
+  header { background:var(--card); border-bottom:1px solid var(--line); box-shadow:var(--shadow); }
+  .bar { max-width:1280px; margin:0 auto; padding:14px 24px; display:flex; align-items:center;
+         justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  h1 { font-size:20px; margin:0; font-weight:700; letter-spacing:-.01em; }
+  h1 small { display:block; font-size:12px; font-weight:500; color:var(--muted); letter-spacing:0; }
+  main { max-width:1280px; margin:0 auto; padding:20px 24px 48px; display:grid; gap:20px; }
+  .muted { color:var(--muted); }
+
+  .stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:14px; }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px;
+          box-shadow:var(--shadow); border-left:4px solid var(--line); }
+  .stat b { display:block; font-size:28px; line-height:1.1; }
+  .stat span { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+  .stat.s-run { border-left-color:var(--run); } .stat.s-err { border-left-color:var(--err); }
+  .stat.s-ok { border-left-color:var(--ok); } .stat.s-warn { border-left-color:var(--warn); }
+
+  section { background:var(--card); border:1px solid var(--line); border-radius:12px;
+            padding:16px 18px; box-shadow:var(--shadow); }
+  h2 { font-size:15px; margin:0 0 12px; font-weight:700; display:flex; align-items:center; gap:8px; }
+  .count { background:var(--idle-bg); color:var(--muted); border-radius:10px; padding:0 8px;
+           font-size:12px; font-weight:600; }
+  .count.hot { background:var(--err-bg); color:var(--err); }
+
+  #message { min-height:0; }
+  #message:not(:empty) { padding:10px 14px; border-radius:8px; background:var(--err-bg); color:var(--err);
+                         border:1px solid var(--err); }
+  #message.ok:not(:empty) { background:var(--ok-bg); color:var(--ok); border-color:var(--ok); }
+
+  .layout { display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:20px; align-items:start; }
+  @media (max-width: 960px) { .layout { grid-template-columns:1fr; } }
+
+  #robots-table { display:grid; gap:12px; }
+  .robot { border:1px solid var(--line); border-radius:10px; padding:14px 16px; display:grid; gap:10px;
+           background:var(--card); }
+  .robot.is-running { border-color:var(--run); background:linear-gradient(0deg,var(--card),var(--card)),var(--run-bg); }
+  .robot.is-error { border-color:var(--err); }
+  .robot-head { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .robot-name { font-size:16px; font-weight:700; display:flex; align-items:center; gap:10px; }
+  .dot { width:10px; height:10px; border-radius:50%; background:var(--muted); flex:none; }
+  .dot.running { background:var(--run); box-shadow:0 0 0 0 var(--run); animation:pulse 1.6s infinite; }
+  .dot.error { background:var(--err); } .dot.stopped { background:var(--muted); }
+  @keyframes pulse { 70% { box-shadow:0 0 0 7px transparent; } 100% { box-shadow:0 0 0 0 transparent; } }
+  .meta { display:flex; flex-wrap:wrap; gap:6px 18px; color:var(--muted); font-size:12px; }
+  .path { font:12px/1.4 ui-monospace, Consolas, monospace; color:var(--muted); background:var(--bg);
+          border:1px solid var(--line); border-radius:6px; padding:6px 8px; word-break:break-all; }
+  .actions { display:flex; flex-wrap:wrap; gap:8px; }
+
+  .badge { padding:2px 10px; border-radius:999px; font-size:12px; font-weight:600; white-space:nowrap; }
+  .badge.running { color:var(--run); background:var(--run-bg); }
+  .badge.stopped { color:var(--muted); background:var(--idle-bg); }
+  .badge.error { color:var(--err); background:var(--err-bg); }
+  .badge.success { color:var(--ok); background:var(--ok-bg); }
+
+  button { font:inherit; font-weight:600; padding:6px 14px; border:1px solid var(--line); border-radius:8px;
+           background:var(--card); color:var(--text); cursor:pointer; transition:background .12s, border-color .12s; }
+  button:hover:not(:disabled) { border-color:var(--accent); background:var(--idle-bg); }
+  button.btn-start { background:var(--ok); border-color:var(--ok); color:#fff; }
+  button.btn-start:hover:not(:disabled) { background:var(--ok); filter:brightness(1.1); }
+  button.btn-stop { color:var(--err); border-color:var(--err); }
+  button.btn-stop:hover:not(:disabled) { background:var(--err-bg); }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  button.primary:hover:not(:disabled) { background:var(--accent); filter:brightness(1.1); }
+  button.ghost { font-weight:500; color:var(--muted); }
+  button:disabled { opacity:.4; cursor:not-allowed; }
+
+  form { display:grid; gap:12px; }
+  label { display:block; font-size:12px; font-weight:600; color:var(--muted); margin-bottom:4px; }
+  input { font:inherit; padding:8px 10px; border:1px solid var(--line); border-radius:8px;
+          background:var(--bg); color:var(--text); width:100%; }
+  input:focus { outline:2px solid var(--accent); outline-offset:-1px; border-color:transparent; }
+  .form-actions { display:flex; gap:8px; }
+
+  .alert-item { display:flex; justify-content:space-between; gap:12px; align-items:center;
+                padding:10px 12px; border-radius:8px; background:var(--err-bg); margin-bottom:8px;
+                border-left:4px solid var(--err); }
+  .alert-item strong { color:var(--err); }
+  .alert-item:last-child { margin-bottom:0; }
+  .empty { color:var(--muted); padding:20px; text-align:center; border:1px dashed var(--line); border-radius:10px; }
+
+  .table-wrap { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:middle; }
+  th { color:var(--muted); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+  pre { background:#0d1117; color:#d6deeb; border-radius:8px; padding:12px 14px; max-height:360px; overflow:auto;
+        white-space:pre-wrap; word-break:break-word; margin:12px 0 0; font:12.5px/1.5 ui-monospace, Consolas, monospace; }
+  .pager { margin-top:12px; display:flex; align-items:center; gap:10px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <h1>Quản lý vận hành robot<small>Theo dõi, chạy và xử lý cảnh báo cho các robot RPA</small></h1>
+    <span class="muted" id="updated">Đang tải...</span>
+  </div>
+</header>
+<main>
+  <div id="message" role="status"></div>
+
+  <div class="stats" id="stats">
+    <div class="stat"><b id="st-total">0</b><span>Tổng số robot</span></div>
+    <div class="stat s-run"><b id="st-running">0</b><span>Đang chạy</span></div>
+    <div class="stat s-err"><b id="st-error">0</b><span>Lần chạy gần nhất lỗi</span></div>
+    <div class="stat s-warn"><b id="st-alerts">0</b><span>Cảnh báo chưa xử lý</span></div>
+  </div>
+
+  <section id="alerts-section">
+    <h2>Cảnh báo chưa xử lý <span class="count" id="alert-badge"><span id="alert-count">0</span></span></h2>
+    <div id="alerts"><span class="muted">Không có cảnh báo.</span></div>
+  </section>
+
+  <div class="layout">
+    <section id="robots-section">
+      <h2>Danh sách robot</h2>
+      <div id="robots-table"><div id="robots"></div></div>
+    </section>
+
+    <section id="form-section">
+      <h2 id="form-title">Khai báo robot</h2>
+      <form id="robot-form">
+        <div><label for="f-name">Tên robot</label><input id="f-name" required maxlength="100" placeholder="VD: STR_NHNN_PushQueueOutput"></div>
+        <div><label for="f-workdir">Thư mục làm việc</label>
+          <input id="f-workdir" required maxlength="500" placeholder="D:/Code/RPA_Python/RPA_NHAPBAOCAO_STR/processes/..."></div>
+        <div><label for="f-command">Lệnh khởi động</label>
+          <input id="f-command" required maxlength="1000" placeholder="run.bat"></div>
+        <div><label for="f-schedule">Lịch chạy hằng ngày (HH:MM, tuỳ chọn)</label>
+          <input id="f-schedule" placeholder="08:00" pattern="([01][0-9]|2[0-3]):[0-5][0-9]"></div>
+        <div class="form-actions">
+          <button class="primary" type="submit" id="f-submit">Lưu robot</button>
+          <button type="button" class="ghost" id="f-cancel" hidden>Huỷ sửa</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <section id="detail-section" hidden>
+    <h2>Lịch sử chạy: <span id="detail-name"></span></h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Bắt đầu</th><th>Kết thúc</th><th>Kết quả</th><th>Mã thoát</th><th></th></tr></thead>
+        <tbody id="runs"></tbody>
+      </table>
+    </div>
+    <div class="pager">
+      <button id="prev-page">&laquo; Mới hơn</button>
+      <span id="page-info" class="muted"></span>
+      <button id="next-page">Cũ hơn &raquo;</button>
+    </div>
+    <pre id="log" hidden></pre>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var REFRESH_MS = 3000;
+  var PAGE_SIZE = 10;
+  var STATUS = { running: "Đang chạy", stopped: "Dừng", error: "Lỗi" };
+  var RESULT = { running: "Đang chạy", success: "Thành công", error: "Lỗi", stopped: "Bị dừng" };
+  var state = { robots: [], selected: null, page: 1, totalRuns: 0, editingId: null };
+
+  function $(id) { return document.getElementById(id); }
+
+  function el(tag, props, children) {
+    var node = document.createElement(tag);
+    Object.keys(props || {}).forEach(function (k) {
+      if (props[k] === null || props[k] === undefined) { return; }
+      if (k === "text") { node.textContent = props[k]; }
+      else if (k === "class") { node.className = props[k]; }
+      else if (k.indexOf("on") === 0) { node.addEventListener(k.slice(2), props[k]); }
+      else { node.setAttribute(k, props[k]); }
+    });
+    (children || []).forEach(function (c) { node.appendChild(c); });
+    return node;
+  }
+
+  function say(text, ok) {
+    var m = $("message");
+    m.textContent = text || "";
+    m.className = ok ? "ok" : "";
+  }
+
+  function api(method, url, body) {
+    var opts = { method: method, headers: {} };
+    if (body !== undefined) {
+      opts.headers["Content-Type"] = "application/json";
+      opts.body = JSON.stringify(body);
+    }
+    return fetch(url, opts).then(function (res) {
+      if (res.status === 204) { return null; }
+      return res.json().catch(function () { return {}; }).then(function (data) {
+        if (!res.ok) {
+          var detail = data.detail;
+          if (Array.isArray(detail)) {
+            detail = detail.map(function (d) { return (d.loc || []).slice(-1) + ": " + d.msg; }).join("; ");
+          }
+          throw new Error(detail || ("Lỗi " + res.status));
+        }
+        return data;
+      });
+    });
+  }
+
+  function fmt(ts) { return ts ? ts.replace("T", " ") : "-"; }
+
+  function renderStats(alertCount) {
+    $("st-total").textContent = state.robots.length;
+    $("st-running").textContent = state.robots.filter(function (r) { return r.status === "running"; }).length;
+    $("st-error").textContent = state.robots.filter(function (r) { return r.status === "error"; }).length;
+    $("st-alerts").textContent = alertCount;
+  }
+
+  function renderRobots() {
+    var box = $("robots");
+    box.textContent = "";
+    box.style.display = "grid";
+    box.style.gap = "12px";
+    if (!state.robots.length) {
+      box.appendChild(el("div", { class: "empty", text: "Chưa có robot nào. Hãy khai báo robot ở khung bên phải." }));
+      return;
+    }
+    state.robots.forEach(function (r) {
+      var running = r.status === "running";
+      var start = el("button", { class: "btn-start", text: "▶ Chạy", disabled: running ? "disabled" : null, onclick: function () { act(r.id, "start"); } });
+      var stop = el("button", { class: "btn-stop", text: "■ Dừng", disabled: running ? null : "disabled", onclick: function () { act(r.id, "stop"); } });
+      var meta = el("div", { class: "meta" }, [
+        el("span", { text: "Lịch chạy: " + (r.schedule || "không đặt") }),
+        el("span", { text: "Lần chạy gần nhất: " + fmt(r.last_started_at) })
+      ]);
+      box.appendChild(el("div", { class: "robot" + (running ? " is-running" : "") + (r.status === "error" ? " is-error" : "") }, [
+        el("div", { class: "robot-head" }, [
+          el("div", { class: "robot-name" }, [
+            el("span", { class: "dot " + r.status }),
+            el("span", { text: r.name })
+          ]),
+          el("span", { class: "badge " + r.status, text: STATUS[r.status] || r.status })
+        ]),
+        meta,
+        el("div", { class: "path", text: r.workdir + "  >  " + r.command }),
+        el("div", { class: "actions" }, [
+          start, stop,
+          el("button", { text: "Lịch sử & log", onclick: function () { select(r.id); } }),
+          el("button", { class: "ghost", text: "Sửa", onclick: function () { edit(r); } }),
+          el("button", { class: "ghost", text: "Xoá", onclick: function () { remove(r); } })
+        ])
+      ]));
+    });
+  }
+
+  function renderAlerts(alerts) {
+    $("alert-count").textContent = alerts.length;
+    $("alert-badge").className = "count" + (alerts.length ? " hot" : "");
+    renderStats(alerts.length);
+    var box = $("alerts");
+    box.textContent = "";
+    if (!alerts.length) { box.appendChild(el("span", { class: "muted", text: "Không có cảnh báo." })); return; }
+    alerts.forEach(function (a) {
+      var label = a.kind === "missed_schedule" ? "Không chạy đúng lịch" : "Robot lỗi";
+      box.appendChild(el("div", { class: "alert-item" }, [
+        el("div", {}, [
+          el("strong", { text: label + " - " + a.robot_name }),
+          el("div", { class: "muted", text: a.message + " (" + fmt(a.created_at) + ")" })
+        ]),
+        el("button", { text: "Đã xử lý", onclick: function () {
+          api("POST", "/api/alerts/" + a.id + "/resolve").then(refresh).catch(function (e) { say(e.message); });
+        } })
+      ]));
+    });
+  }
+
+  function renderRuns(data) {
+    state.totalRuns = data.total;
+    var tbody = $("runs");
+    tbody.textContent = "";
+    if (!data.items.length) {
+      tbody.appendChild(el("tr", {}, [el("td", { colspan: "6", class: "muted", text: "Chưa có lần chạy nào." })]));
+    }
+    data.items.forEach(function (run) {
+      tbody.appendChild(el("tr", {}, [
+        el("td", { text: String(run.id) }),
+        el("td", { text: fmt(run.started_at) }),
+        el("td", { text: fmt(run.ended_at) }),
+        el("td", {}, [el("span", { class: "badge " + run.status, text: RESULT[run.status] || run.status })]),
+        el("td", { text: run.exit_code === null ? "-" : String(run.exit_code) }),
+        el("td", {}, [el("button", { text: "Xem log", onclick: function () { showLog(run.id); } })])
+      ]));
+    });
+    var pages = Math.max(1, Math.ceil(data.total / PAGE_SIZE));
+    $("page-info").textContent = " Trang " + data.page + "/" + pages + " ";
+    $("prev-page").disabled = data.page <= 1;
+    $("next-page").disabled = data.page >= pages;
+  }
+
+  function loadRuns() {
+    if (state.selected === null) { return Promise.resolve(); }
+    return api("GET", "/api/robots/" + state.selected + "/runs?page=" + state.page + "&page_size=" + PAGE_SIZE)
+      .then(renderRuns)
+      .catch(function (e) { say(e.message); });
+  }
+
+  function refresh() {
+    return Promise.all([api("GET", "/api/robots"), api("GET", "/api/alerts")]).then(function (res) {
+      state.robots = res[0];
+      renderRobots();
+      renderAlerts(res[1]);
+      $("updated").textContent = "Cập nhật lúc " + new Date().toLocaleTimeString();
+      return loadRuns();
+    }).catch(function (e) { say("Không tải được dữ liệu: " + e.message); });
+  }
+
+  function act(id, action) {
+    say("");
+    api("POST", "/api/robots/" + id + "/" + action).then(function () {
+      say(action === "start" ? "Đã khởi động robot." : "Đã dừng robot.", true);
+      return refresh();
+    }).catch(function (e) { say(e.message); refresh(); });
+  }
+
+  function select(id) {
+    state.selected = id;
+    state.page = 1;
+    var robot = state.robots.filter(function (r) { return r.id === id; })[0];
+    $("detail-name").textContent = robot ? robot.name : "";
+    $("detail-section").hidden = false;
+    $("log").hidden = true;
+    loadRuns().then(function () { $("detail-section").scrollIntoView({ behavior: "smooth", block: "start" }); });
+  }
+
+  function showLog(runId) {
+    api("GET", "/api/runs/" + runId + "/log").then(function (d) {
+      var pre = $("log");
+      pre.textContent = d.log || "(log trống)";
+      pre.hidden = false;
+    }).catch(function (e) { say(e.message); });
+  }
+
+  function edit(r) {
+    state.editingId = r.id;
+    $("f-name").value = r.name;
+    $("f-workdir").value = r.workdir;
+    $("f-command").value = r.command;
+    $("f-schedule").value = r.schedule || "";
+    $("form-title").textContent = "Sửa robot: " + r.name;
+    $("f-cancel").hidden = false;
+    $("f-name").focus();
+  }
+
+  function resetForm() {
+    state.editingId = null;
+    $("robot-form").reset();
+    $("form-title").textContent = "Khai báo robot";
+    $("f-cancel").hidden = true;
+  }
+
+  function remove(r) {
+    if (!window.confirm("Xoá robot '" + r.name + "' cùng lịch sử của nó?")) { return; }
+    api("DELETE", "/api/robots/" + r.id).then(function () {
+      if (state.selected === r.id) { state.selected = null; $("detail-section").hidden = true; }
+      say("Đã xoá robot.", true);
+      return refresh();
+    }).catch(function (e) { say(e.message); });
+  }
+
+  $("robot-form").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var body = {
+      name: $("f-name").value, workdir: $("f-workdir").value,
+      command: $("f-command").value, schedule: $("f-schedule").value || null
+    };
+    var req = state.editingId === null
+      ? api("POST", "/api/robots", body)
+      : api("PUT", "/api/robots/" + state.editingId, body);
+    req.then(function () { say("Đã lưu robot.", true); resetForm(); return refresh(); })
+      .catch(function (e) { say(e.message); });
+  });
+  $("f-cancel").addEventListener("click", resetForm);
+  $("prev-page").addEventListener("click", function () { state.page -= 1; loadRuns(); });
+  $("next-page").addEventListener("click", function () { state.page += 1; loadRuns(); });
+
+  refresh();
+  setInterval(refresh, REFRESH_MS);
+})();
+</script>
+</body>
+</html>

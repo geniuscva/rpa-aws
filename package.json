@@ -9,7 +9,7 @@
   "main": "dist/main/main.js",
   "scripts": {
     "clean": "rm -rf dist release",
-    "dev": "concurrently -k \"vite --host 127.0.0.1\" \"tsc -p tsconfig.main.json --watch\" \"wait-on http://127.0.0.1:5173 dist/main/main.js && electron .\"",
+    "dev": "concurrently -k \"vite --host 127.0.0.1\" \"tsc -p tsconfig.main.json --watch\" \"wait-on http://127.0.0.1:5173 dist/main/main.js && tsx scripts/dev-electron.ts\"",
     "build": "pnpm clean && tsc -p tsconfig.main.json && vite build && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --dir",
     "package:mac": "pnpm clean && tsc -p tsconfig.main.json && vite build && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac dmg zip",
     "typecheck": "tsc --noEmit -p tsconfig.json",

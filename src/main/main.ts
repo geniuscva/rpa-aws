@@ -24,6 +24,7 @@ let backend: KiroBackend;
 let gateway: McpGateway;
 let status: AppStatus = { kiro: 'checking', message: 'Checking Kiro CLI…' };
 let appData = '';
+let ipcReady = false;
 const pendingSkillImports = new Map<string, string>();
 
 function broadcast(event: AppEvent): void {
@@ -175,12 +176,12 @@ function setupTray(): void {
   tray = new Tray(image);
   tray.setToolTip('Agentic OS');
   tray.setContextMenu(Menu.buildFromTemplate([
-    { label: 'Open Agentic OS', click: () => { if (mainWindow) mainWindow.show(); else void createWindow(); } },
+    { label: 'Open Agentic OS', click: () => { if (mainWindow) mainWindow.show(); else if (ipcReady) void createWindow(); } },
     { label: 'New conversation', click: () => { void backend.newConversation(); mainWindow?.show(); } },
     { type: 'separator' }, { label: 'Quit', click: () => app.quit() },
   ]));
   globalShortcut.register('CommandOrControl+Shift+Space', () => {
-    if (mainWindow?.isVisible()) mainWindow.hide(); else if (mainWindow) mainWindow.show(); else void createWindow();
+    if (mainWindow?.isVisible()) mainWindow.hide(); else if (mainWindow) mainWindow.show(); else if (ipcReady) void createWindow();
   });
 }
 
@@ -191,7 +192,12 @@ async function bootstrap(): Promise<void> {
   const agentHome = join(appData, '.agent-workspace');
   const agentConfigDir = join(agentHome, '.kiro', 'agents');
   await mkdir(agentConfigDir, { recursive: true });
-  await copyFile(join(app.getAppPath(), '.kiro/agents/agenticos.json'), join(agentConfigDir, 'agenticos.json'));
+  const agentConfigSource = join(app.getAppPath(), '.kiro/agents/agenticos.json');
+  try {
+    await copyFile(agentConfigSource, join(agentConfigDir, 'agenticos.json'));
+  } catch (error) {
+    console.error(`Agentic OS: could not stage the Kiro agent config from ${agentConfigSource}; the Kiro backend may be unavailable until it is restored.`, error);
+  }
   database = new AppDatabase(appData);
   database.interruptRunningTasks();
   const libraryPath = join(appData, 'skills');
@@ -214,6 +220,7 @@ async function bootstrap(): Promise<void> {
   });
   backend = new KiroBackend(database, skills, gateway, () => files.getWorkspace(), agentHome, broadcast);
   registerIpc();
+  ipcReady = true;
   setupMenu();
   setupTray();
   await createWindow();
@@ -222,7 +229,7 @@ async function bootstrap(): Promise<void> {
 
 app.whenReady().then(() => { void bootstrap().catch((error) => dialog.showErrorBox('Agentic OS could not start', error instanceof Error ? error.message : String(error))); });
 
-app.on('activate', () => { if (!mainWindow) void createWindow(); else mainWindow.show(); });
+app.on('activate', () => { if (mainWindow) mainWindow.show(); else if (ipcReady) void createWindow(); });
 app.on('will-quit', () => {
   globalShortcut.unregisterAll();
   void browser?.close();

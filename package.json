@@ -1,0 +1,59 @@
+{
+  "name": "agentic-os",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A personal macOS agent workspace powered by Kiro CLI.",
+  "author": "Agentic OS",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "clean": "rm -rf dist release",
+    "dev": "concurrently -k \"vite --host 127.0.0.1\" \"tsc -p tsconfig.main.json --watch\" \"wait-on http://127.0.0.1:5173 dist/main/main.js && electron .\"",
+    "build": "pnpm clean && tsc -p tsconfig.main.json && vite build && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --dir",
+    "package:mac": "pnpm clean && tsc -p tsconfig.main.json && vite build && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac dmg zip",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@agentclientprotocol/sdk": "^1.7.0",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "better-sqlite3": "^12.0.0",
+    "lucide-react": "^0.577.0",
+    "playwright": "^1.58.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "yaml": "^2.8.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.0.0",
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0",
+    "vitest": "^3.2.0",
+    "wait-on": "^8.0.0"
+  },
+  "build": {
+    "appId": "com.agenticos.desktop",
+    "productName": "Agentic OS",
+    "directories": { "output": "release" },
+    "files": ["dist/**/*", "package.json", ".kiro/agents/**"],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": ["dmg", "zip"],
+      "hardenedRuntime": false
+    },
+    "dmg": { "sign": false },
+    "npmRebuild": true
+  }
+}

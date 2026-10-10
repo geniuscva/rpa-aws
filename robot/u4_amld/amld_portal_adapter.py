@@ -225,9 +225,20 @@ class PlaywrightAmldPortalPort:
             _fill_i("input_tinh_thanh_chinhanh", "tinh_thanh_pho_chi_nhanh")
             _fill_i("input_dienthoai_chinhanh", "sdt_chi_nhanh")
             _fill_i("input_email_donvi", "email_nguoi_lap_bao_cao")
+            
+            # Người chịu trách nhiệm phòng chống rửa tiền
+            _fill_i("input_nguoi_aml_hoten", "ten_nguoi_lap_bao_cao")
+            _fill_i("input_nguoi_aml_dt_lamviec", "sdt_lam_viec_nguoi_lap_bao_cao")
+            _fill_i("input_nguoi_aml_dt_didong", "sdt_dd_nguoi_lap_bao_cao")
+            
+            # Người lập báo cáo
             _fill_i("input_nguoi_lap_hoten", "ten_nguoi_lap_bao_cao")
             _fill_i("input_nguoi_lap_dt_lamviec", "sdt_lam_viec_nguoi_lap_bao_cao")
             _fill_i("input_nguoi_lap_dt_didong", "sdt_dd_nguoi_lap_bao_cao")
+            
+            # Chức vụ và Bộ phận công tác (bắt buộc)
+            page.locator(PART_I_SELECTORS["input_nguoi_aml_chucvu"]).first.fill("Giao dịch viên")
+            page.locator(PART_I_SELECTORS["input_bophan_congtac"]).first.fill("Phòng Dịch vụ Khách hàng")
             
         elif section == "II":
             btn_save = PART_II_SELECTORS["btn_save"]

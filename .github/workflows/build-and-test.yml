@@ -53,6 +53,8 @@ jobs:
 
     - name: Run E2E Integration Tests
       run: |
+        # Wait for Kafka service to be fully ready
+        sleep 20
         # Chạy Pytest và xuất report HTML
         pytest -v tests/test_rpa_str_nhnn.py --html=report.html --self-contained-html
         

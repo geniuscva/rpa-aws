@@ -203,8 +203,8 @@ class PlaywrightAmldPortalPort:
         # Click tab corresponding to the section
         tab_key = f"tab_part_{section.lower()}"
         if tab_key in NAVIGATION_SELECTORS:
-            page.click(NAVIGATION_SELECTORS[tab_key])
-            page.wait_for_timeout(1000) # Give UI time to switch tab
+            page.locator(NAVIGATION_SELECTORS[tab_key]).click()
+            page.wait_for_timeout(2000) # Give UI time to switch tab and render
             
         # Select save button
         btn_save = None
@@ -214,7 +214,9 @@ class PlaywrightAmldPortalPort:
             def _fill_i(k_selector: str, k_data: str) -> None:
                 val = data.get(k_data)
                 if val:
-                    page.locator(PART_I_SELECTORS[k_selector]).fill(str(val), force=True)
+                    # Angular needs standard fill to trigger input events.
+                    loc = page.locator(PART_I_SELECTORS[k_selector]).first
+                    loc.fill(str(val))
                     
             _fill_i("input_ma_bc_noi_bo", "str_ma_bao_cao")
             _fill_i("input_ten_chinhanh", "ten_chi_nhanh")
@@ -235,7 +237,8 @@ class PlaywrightAmldPortalPort:
             def _fill_iv(k_selector: str, k_data: str) -> None:
                 val = data.get(k_data)
                 if val:
-                    page.locator(PART_IV_SELECTORS[k_selector]).fill(str(val), force=True)
+                    loc = page.locator(PART_IV_SELECTORS[k_selector]).first
+                    loc.fill(str(val))
 
             _fill_iv("input_ngay_bat_dau", "ngay_bat_dau")
             _fill_iv("input_ngay_ket_thuc", "ngay_ket_thuc")
@@ -244,18 +247,18 @@ class PlaywrightAmldPortalPort:
             
             loai_bao_cao = str(data.get("phan_iv_loai_bao_cao_dang_ngo", "")).strip().upper()
             if loai_bao_cao and loai_bao_cao in PART_IV_SELECTORS["report_classification"]:
-                page.locator(PART_IV_SELECTORS["report_classification"][loai_bao_cao]).check(force=True)
+                page.locator(PART_IV_SELECTORS["report_classification"][loai_bao_cao]).check()
                 
             toi_pham = str(data.get("phan_iv_nhan_dinh_loai_toi_pham", "")).strip()
             if toi_pham:
                 if toi_pham in PART_IV_SELECTORS["crime_code"]:
-                    page.locator(PART_IV_SELECTORS["crime_code"][toi_pham]).check(force=True)
+                    page.locator(PART_IV_SELECTORS["crime_code"][toi_pham]).check()
                 else:
-                    page.locator(PART_IV_SELECTORS["crime_code"]["30"]).check(force=True)
+                    page.locator(PART_IV_SELECTORS["crime_code"]["30"]).check()
                     page.locator(PART_IV_SELECTORS["input_toi_pham_khac"]).fill(toi_pham)
             
             try:
-                page.locator(PART_IV_SELECTORS["radio_trang_thai_gd"]).check(force=True)
+                page.locator(PART_IV_SELECTORS["radio_trang_thai_gd"]).check()
             except Exception:
                 pass
                 
@@ -266,8 +269,8 @@ class PlaywrightAmldPortalPort:
             
         if btn_save:
             # Ignore UI validation/toast errors as we are just clicking save for now
-            page.click(btn_save, force=True)
-            page.wait_for_timeout(1500)
+            page.locator(btn_save).click()
+            page.wait_for_timeout(2000)
 
     def set_ticks(self, section: str, values: list) -> None:  # pragma: no cover
         page = self._ensure_page()
@@ -277,12 +280,12 @@ class PlaywrightAmldPortalPort:
             for val in values:
                 selector = PART_IV_SELECTORS["warning_sign"].get(str(val))
                 if selector:
-                    page.check(selector, force=True)
+                    page.locator(selector).check()
         elif section == "V":
             for val in values:
                 selector = PART_V_SELECTORS["action_code"].get(str(val))
                 if selector:
-                    page.check(selector, force=True)
+                    page.locator(selector).check()
 
     def upload(self, files: list[str]) -> int:
         page = self._ensure_page()

@@ -1,3 +1,4 @@
+import sys
 import pytest
 import subprocess
 import os
@@ -8,7 +9,7 @@ import time
 from kafka import KafkaProducer
 
 # ĐƯỜNG DẪN CẤU HÌNH CHO BOT
-BOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BOT_DIR = "/Users/khanhnguyen/Downloads/rpa-aws"
 LOG_FILE_PATH = os.path.join(BOT_DIR, "logs", "bot_execution.log")
 LUY_KE_T_PATH = os.path.join(BOT_DIR, "data", "LuyKe_Thang_T.xlsx")
 LUY_KE_T_MINUS_1_PATH = os.path.join(BOT_DIR, "data", "LuyKe_Thang_T-1.xlsx")
@@ -85,7 +86,7 @@ class TestMinibotSTRNHNNValidateInput:
         # WHEN: Các bước thực hiện
         try:
             with open(LOG_FILE_PATH, 'w') as log_f:
-                subprocess.run(["python3", "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
+                subprocess.run([sys.executable, "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:
             pass
             
@@ -111,7 +112,7 @@ class TestMinibotSTRNHNNValidateInput:
         # WHEN: Các bước thực hiện
         try:
             with open(LOG_FILE_PATH, 'w') as log_f:
-                subprocess.run(["python3", "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
+                subprocess.run([sys.executable, "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:
             pass
 
@@ -133,7 +134,7 @@ class TestMinibotSTRNHNNValidateInput:
         # WHEN: Các bước thực hiện
         try:
             with open(LOG_FILE_PATH, 'w') as log_f:
-                subprocess.run(["python3", "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
+                subprocess.run([sys.executable, "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:
             pass
 
@@ -160,7 +161,7 @@ class TestMinibotSTRNHNNValidateInput:
         # WHEN: Các bước thực hiện
         try:
             with open(LOG_FILE_PATH, 'w') as log_f:
-                subprocess.run(["python3", "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
+                subprocess.run([sys.executable, "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:
             pass
 
@@ -190,7 +191,7 @@ class TestMinibotSTRNHNNValidateInput:
         # WHEN: Các bước thực hiện
         try:
             with open(LOG_FILE_PATH, 'w') as log_f:
-                subprocess.run(["python3", "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
+                subprocess.run([sys.executable, "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:
             pass
 

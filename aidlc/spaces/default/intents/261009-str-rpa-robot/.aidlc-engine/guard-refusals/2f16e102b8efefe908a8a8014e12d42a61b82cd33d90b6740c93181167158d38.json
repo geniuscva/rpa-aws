@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "stateSignature": "23c27c026298957ee4a12fee914d359bb0a34742f7dac6dc1afdd708d3b6f27b",
+  "signature": "7a0e9a89e711d1fe82c518b50a68cc6d202188ec113d48f98bcc87378bbf78fb",
+  "count": 1,
+  "codes": [
+    "REVIEW_BUDGET_EXHAUSTED"
+  ],
+  "resetToken": "SESSION_RESUMED\u00002026-10-09T09:11:09Z\u0000/Users/hainguyen/Projects/rpa_aws/aidlc/spaces/default/intents/261009-str-rpa-robot/audit/hais-macbook-local-fad31d3a98c0.md\u0000664",
+  "refusal": {
+    "code": "REVIEW_BUDGET_EXHAUSTED",
+    "blockedAction": "review-request",
+    "stage": "functional-design",
+    "unit": "u3-data-entry-tracuuthue",
+    "state": "in-progress",
+    "invariant": "Review requests do not exceed the configured attempt budget.",
+    "userMessage": "Cannot request review pass 2 for \"functional-design\" because this stage allows 1 review pass. Do not ask the reviewer again; include the findings in the approval summary for the human.",
+    "remedies": [
+      {
+        "op": "present-approval-gate",
+        "label": "Decide at approval",
+        "description": "I'll bring Functional Design for u3-data-entry-tracuuthue to you for approval with what its review raised, instead of asking for another review.",
+        "action": "Present the unresolved review findings at the approval gate for the human instead of starting another review pass.",
+        "requiresHuman": true,
+        "executableNow": true,
+        "interaction": "human-input"
+      },
+      {
+        "op": "request-changes",
+        "label": "Request Changes",
+        "description": "Tell me what should change in Functional Design for u3-data-entry-tracuuthue, and I'll revise it.",
+        "action": "When the person already said what should change for stage \"functional-design\", submit Request Changes with their exact text unchanged as the report reason. Otherwise ask \"What should change?\" and end the turn, then submit their answer the same way. Either way that unlocks revision and a fresh review.",
+        "requiresHuman": true,
+        "executableNow": true,
+        "interaction": "human-input"
+      }
+    ]
+  },
+  "updatedAt": "2026-10-09T09:29:00Z"
+}

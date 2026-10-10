@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "stage": "code-generation",
+  "unit": "u2-data-entry-accuity",
+  "workflow": null,
+  "attempt": "3f814d7fed62fa20",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:b27f5617233bc5dc9096b4f5cd86f092",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:0b16d021e813a84240c69e32cb510ca95e4e540948d060acacda64662a0acd7d",
+  "source_fingerprint": "3a6a462489a81ad566e0b3dc620ace19dd3c63f22b65bec05ccc96203bc7b63e",
+  "unit_source_fingerprint": "sha256:46ec6cc875e20eed872dc0fa51465fb72fce476716f811966adaf014884b6abb",
+  "findings": [],
+  "derived_findings": [],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nRà soát code U2 DataEntryAccuity so với functional-design, NFR design và hợp đồng\nStrRecord. Cấu phần hiện thực đúng hợp đồng pipeline, cô lập phụ thuộc web Accuity\nsau Protocol `AccuityPort` để test mock (NFR6), tuân thủ quy tắc dừng record khi\nlỗi (BR). Map loại KH đúng (KHCN→Individual, KHDN→Organization), export PDF thứ\nhai khi Match Score=100, ghi BOT_ACCUITY, lỗi → processing_stopped + BOT_GHICHU.\nCredentials đọc từ data/config.yaml, không hardcode. 12 test phủ happy path\nKHCN/KHDN, match=100, lỗi login/lookup và record đã dừng; toàn bộ suite 37 passed.\nSẵn sàng cho Build and Test.\n\n### Prior findings\n\n| ID | Severity | Location | Finding | Status |\n|---|---|---|---|---|\n| — | — | — | Không có (iteration 1) | — |\n\n### New findings\n\n| ID | Severity | Location | Finding | Required action | Status |\n|---|---|---|---|---|---|\n| N-01 | Info | accuity_adapter.py | `AccuityPort` là Protocol thuần; hiện thực Playwright thật gắn ở bước chạy thật — hợp lý với phạm vi U2. | Không cần hành động. | New |\n| N-02 | Info | accuity_stage.py | Khi record đã dừng từ U1, U2 trả nguyên record, không chạm BOT_ACCUITY — đúng hợp đồng pipeline. | Không cần hành động. | New |\n\nKhông có finding mức high/medium. Code sẵn sàng.\n",
+  "recorded_at": "2026-10-09T11:32:26Z"
+}

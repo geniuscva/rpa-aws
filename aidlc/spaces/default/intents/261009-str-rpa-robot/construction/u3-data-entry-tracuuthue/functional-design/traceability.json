@@ -1,0 +1,16 @@
+{
+  "stage": "functional-design",
+  "unit": "u3-data-entry-tracuuthue",
+  "upstream_ids": ["AC2.3.1", "AC2.3.2"],
+  "coverage": [
+    { "id": "AC2.3.1", "status": "OK", "target": "BR3.2" },
+    { "id": "AC2.3.1", "status": "OK", "target": "BR3.3" },
+    { "id": "AC2.3.2", "status": "OK", "target": "BR3.4" }
+  ],
+  "reverse": [
+    { "id": "BR3.1", "status": "N/A", "target": "quy tắc cô lập lỗi pipeline (FR12)" },
+    { "id": "BR3.5", "status": "N/A", "target": "ghi kết quả BOT_TRACUUTHE, hệ quả của AC2.3.1/2.3.2" },
+    { "id": "BR3.6", "status": "N/A", "target": "quy tắc xử lý lỗi tra cứu (FR7.5)" },
+    { "id": "BR3.7", "status": "N/A", "target": "ràng buộc bảo mật chung (NFR4/US5.1)" }
+  ]
+}

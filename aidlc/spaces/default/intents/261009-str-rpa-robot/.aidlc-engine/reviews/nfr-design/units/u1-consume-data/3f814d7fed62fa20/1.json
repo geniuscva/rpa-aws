@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "stage": "nfr-design",
+  "unit": "u1-consume-data",
+  "workflow": null,
+  "attempt": "3f814d7fed62fa20",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:52f2510f256ce2b0299229cc7bbe1d5a",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:9f23f6f8dfd11d7cab7b3d8aba595ca6943a502576d4fc6e8f5b5f5a46da0fc4",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "EcmClientAdapter",
+      "finding": "Số lần retry/backoff ECM cụ thể để Code Generation chốt; thiết kế chỉ nêu khoảng.",
+      "required_action": "Chốt tham số ở Code Generation.",
+      "status": "New"
+    }
+  ],
+  "derived_findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "EcmClientAdapter",
+      "finding": "Số lần retry/backoff ECM cụ thể để Code Generation chốt; thiết kế chỉ nêu khoảng.",
+      "required_action": "Chốt tham số ở Code Generation.",
+      "status": "New",
+      "introduced_in_review": true
+    }
+  ],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nNFR Design U1 chuyển các NFR requirements thành thành phần logic rõ ràng\n(logical-components.md): KafkaConsumerAdapter, IdempotencyStore, ConfigProvider,\nEcmClientAdapter (timeout+retry, token in-memory), StructuredLogger (JSON), v.v.\nMỗi thiết kế (security/reliability/observability/performance/scalability) ánh xạ\ntới NFR tương ứng. Các adapter ẩn sau interface để mock (NFR6). Quyết định\nconfig.yaml được phản ánh nhất quán ở ConfigProvider và đã đồng bộ rule ở\nproject.md. traceability phủ các NFR-U1. Sẵn sàng cho bước tiếp theo của Unit.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n| Low | EcmClientAdapter | Số lần retry/backoff ECM cụ thể để Code Generation chốt; thiết kế chỉ nêu khoảng. | Chốt tham số ở Code Generation. |\n",
+  "recorded_at": "2026-10-09T07:58:06Z"
+}

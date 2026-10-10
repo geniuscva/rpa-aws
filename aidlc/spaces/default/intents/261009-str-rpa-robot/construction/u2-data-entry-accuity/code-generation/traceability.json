@@ -1,0 +1,8 @@
+{
+  "stage": "code-generation",
+  "unit": "u2-data-entry-accuity",
+  "upstream_ids": ["US2.2"],
+  "coverage": [
+    { "id": "US2.2", "status": "OK", "target": "robot/u2_accuity/accuity_adapter.py, robot/u2_accuity/accuity_stage.py" }
+  ]
+}

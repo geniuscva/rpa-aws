@@ -1,0 +1,12 @@
+{
+  "stage": "nfr-requirements",
+  "unit": "u5-tonghop-guimail",
+  "upstream_ids": ["NFR2", "NFR3", "NFR4", "NFR5", "NFR7"],
+  "coverage": [
+    { "id": "NFR2", "status": "OK", "target": "PERF-U5-1" },
+    { "id": "NFR3", "status": "OK", "target": "REL-U5-1, REL-U5-2" },
+    { "id": "NFR4", "status": "OK", "target": "SEC-U5-1, SEC-U5-2" },
+    { "id": "NFR5", "status": "OK", "target": "OBS-U5-1" },
+    { "id": "NFR7", "status": "OK", "target": "SCAL-U5-1" }
+  ]
+}

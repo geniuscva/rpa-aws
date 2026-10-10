@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "stage": "contract-design",
+  "unit": null,
+  "workflow": null,
+  "attempt": "66ac3253448e0810",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:6c5ba13a6703953c3cbff06350d84888",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:16eb09bb715b415f6358a61d2415941e4ced1378ea90e685a13edb119cbc4f07",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "Contract 1 (Kafka)",
+      "finding": "Chưa chốt idempotency: message trùng (cùng eventID/cif) có thể gây xử lý lặp một CIF; đã ghi ở Open Questions.",
+      "required_action": "Chốt chính sách dedup ở Functional Design.",
+      "status": "New"
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "Contract 2 (ECM)",
+      "finding": "Mapping business_code cho từng loại hồ sơ PDF chưa định; ảnh hưởng U1 khi tải đúng tài liệu.",
+      "required_action": "Chốt ở Functional Design U1.",
+      "status": "New"
+    },
+    {
+      "id": "R-03",
+      "severity": "Low",
+      "location": "StrRecord",
+      "finding": "Mọi cột đang để kiểu string; kiểu số/ngày chính xác hoãn tới entities.md — hợp lý nhưng cần nhất quán khi tính toán số tiền.",
+      "required_action": "Chốt kiểu ở Functional Design.",
+      "status": "New"
+    }
+  ],
+  "derived_findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "Contract 1 (Kafka)",
+      "finding": "Chưa chốt idempotency: message trùng (cùng eventID/cif) có thể gây xử lý lặp một CIF; đã ghi ở Open Questions.",
+      "required_action": "Chốt chính sách dedup ở Functional Design.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "Contract 2 (ECM)",
+      "finding": "Mapping business_code cho từng loại hồ sơ PDF chưa định; ảnh hưởng U1 khi tải đúng tài liệu.",
+      "required_action": "Chốt ở Functional Design U1.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-03",
+      "severity": "Low",
+      "location": "StrRecord",
+      "finding": "Mọi cột đang để kiểu string; kiểu số/ngày chính xác hoãn tới entities.md — hợp lý nhưng cần nhất quán khi tính toán số tiền.",
+      "required_action": "Chốt kiểu ở Functional Design.",
+      "status": "New",
+      "introduced_in_review": true
+    }
+  ],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nContract summary phủ đủ các ranh giới: hai hợp đồng ngoài (Kafka message, ECM\nREST) và bốn ranh giới nội bộ dùng chung hợp đồng StrRecord + interface\nprocess(StrRecord, context). Message Kafka được pin đúng theo mẫu người dùng cung\ncấp (eventID, eventName=LIST_CUST_STR, cif, timeStamp) và làm rõ mỗi message là\nmột CIF. ECM API khớp docs/SERVICES_CONNECTION_INFO.md (auth → search → get\ncontent) với credentials đọc từ env. Schema StrRecord liệt kê đủ cột và phân nhóm\ncấu phần nào ghi cột nào, có control_fields (processingStopped, writtenBy) hỗ trợ\nquy ước bỏ qua record lỗi và nhảy tới U5 — nhất quán với Q4. Quy tắc sở hữu và\nthay đổi cộng-thêm an toàn rõ ràng. Sẵn sàng cho cổng; các điểm dưới là gợi ý.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n| Low | Contract 1 (Kafka) | Chưa chốt idempotency: message trùng (cùng eventID/cif) có thể gây xử lý lặp một CIF; đã ghi ở Open Questions. | Chốt chính sách dedup ở Functional Design. |\n| Low | Contract 2 (ECM) | Mapping business_code cho từng loại hồ sơ PDF chưa định; ảnh hưởng U1 khi tải đúng tài liệu. | Chốt ở Functional Design U1. |\n| Low | StrRecord | Mọi cột đang để kiểu string; kiểu số/ngày chính xác hoãn tới entities.md — hợp lý nhưng cần nhất quán khi tính toán số tiền. | Chốt kiểu ở Functional Design. |\n",
+  "recorded_at": "2026-10-09T06:46:53Z"
+}

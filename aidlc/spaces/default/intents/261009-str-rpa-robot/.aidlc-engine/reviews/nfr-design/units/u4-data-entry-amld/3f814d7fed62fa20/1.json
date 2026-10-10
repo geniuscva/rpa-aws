@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "stage": "nfr-design",
+  "unit": "u4-data-entry-amld",
+  "workflow": null,
+  "attempt": "3f814d7fed62fa20",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:297049c15da967f397979deb993a7150",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:24dec785efcc2046048eee53540565e43f2b37788733263523cf6b736a3474e9",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [],
+  "derived_findings": [],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nNFR Design U4 đầy đủ: AmldPortalAdapter (mock), SectionFiller cho từng Phần (bỏ\nIII, rẽ nhánh KHCN/KHDN, quy tắc Phần V), TickValidator, AttachmentUploader (FAIL\nkhi thiếu), RetryPolicy ≤3, login reload ≤3. Credentials config.yaml. U4 hội tụ\nU2+U3. traceability phủ đủ.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n",
+  "recorded_at": "2026-10-09T11:10:28Z"
+}

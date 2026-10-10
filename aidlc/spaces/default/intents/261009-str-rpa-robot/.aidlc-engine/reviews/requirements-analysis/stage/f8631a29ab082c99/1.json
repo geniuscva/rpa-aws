@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "stage": "requirements-analysis",
+  "unit": null,
+  "workflow": null,
+  "attempt": "f8631a29ab082c99",
+  "iteration": 1,
+  "reviewer": "aidlc-product-lead-agent",
+  "verdict": "READY",
+  "request_id": "review:af794cfa755113fb0c0f323f8f220682",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:7963ceaee89096702c452c29aaeeae15ac5a4381fde06a2e4e3529949e3e7cf1",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "FR1 / OQ1",
+      "finding": "Schema message Kafka chưa định nghĩa; FR1 phụ thuộc vào nó để map message sang thư mục ngày/CIF.",
+      "required_action": "Chốt schema ở giai đoạn thiết kế; đã ghi nhận ở OQ1 nên không chặn.",
+      "status": "Unresolved"
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "NFR2",
+      "finding": "Ngưỡng ≤ 15 phút/báo cáo chưa nói rõ đo end-to-end gồm cả thời gian chờ hệ thống ngoài hay chỉ phần robot xử lý.",
+      "required_action": "Làm rõ phạm vi đo khi vào NFR/thiết kế.",
+      "status": "Unresolved"
+    },
+    {
+      "id": "R-03",
+      "severity": "Low",
+      "location": "FR7.3",
+      "finding": "Dựa vào ddddocr để qua captcha Cục Thuế là điểm có thể fail; chưa nêu ngưỡng số lần thử OCR trước khi coi là không có kết quả.",
+      "required_action": "Định nghĩa số lần thử OCR ở thiết kế.",
+      "status": "Unresolved"
+    },
+    {
+      "id": "R-04",
+      "severity": "Low",
+      "location": "OQ4",
+      "finding": "Jira FCRM-6209 đang Cancelled; phạm vi cần nghiệp vụ xác nhận lại trước khi triển khai thật.",
+      "required_action": "Đã ghi nhận ở OQ4; người duyệt nên lưu ý rủi ro này.",
+      "status": "Resolved"
+    },
+    {
+      "id": "R-05",
+      "severity": "Low",
+      "location": "FR14 / OQ4",
+      "finding": "Cách map customerCode/business_code của ECM mock sang từng CIF và từng loại hồ sơ PDF chưa định nghĩa.",
+      "required_action": "Đã ghi nhận ở OQ4 mới; chốt ở thiết kế.",
+      "status": "New"
+    },
+    {
+      "id": "R-06",
+      "severity": "Low",
+      "location": "project.md",
+      "finding": "Rule bắt buộc LOG_DONE đã promote ở giai đoạn trước nay mâu thuẫn với quyết định bỏ LOG_DONE; cần được gỡ/điều chỉnh ở bước learnings để bộ nhớ không mâu thuẫn.",
+      "required_action": "Xử lý ở nghi thức learnings cuối giai đoạn.",
+      "status": "New"
+    }
+  ],
+  "derived_findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "FR1 / OQ1",
+      "finding": "Schema message Kafka chưa định nghĩa; FR1 phụ thuộc vào nó để map message sang thư mục ngày/CIF.",
+      "required_action": "Chốt schema ở giai đoạn thiết kế; đã ghi nhận ở OQ1 nên không chặn.",
+      "status": "Unresolved",
+      "reviewer_note": "Schema message Kafka vẫn để mở (OQ1); đúng là việc của thiết kế, không chặn.",
+      "resolved_in_review": false,
+      "introduced_in_review": false
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "NFR2",
+      "finding": "Ngưỡng ≤ 15 phút/báo cáo chưa nói rõ đo end-to-end gồm cả thời gian chờ hệ thống ngoài hay chỉ phần robot xử lý.",
+      "required_action": "Làm rõ phạm vi đo khi vào NFR/thiết kế.",
+      "status": "Unresolved",
+      "reviewer_note": "Phạm vi đo NFR2 vẫn chưa làm rõ end-to-end hay chỉ phần robot.",
+      "resolved_in_review": false,
+      "introduced_in_review": false
+    },
+    {
+      "id": "R-03",
+      "severity": "Low",
+      "location": "FR7.3",
+      "finding": "Dựa vào ddddocr để qua captcha Cục Thuế là điểm có thể fail; chưa nêu ngưỡng số lần thử OCR trước khi coi là không có kết quả.",
+      "required_action": "Định nghĩa số lần thử OCR ở thiết kế.",
+      "status": "Unresolved",
+      "reviewer_note": "Vẫn chưa nêu ngưỡng số lần thử OCR captcha; để thiết kế quyết.",
+      "resolved_in_review": false,
+      "introduced_in_review": false
+    },
+    {
+      "id": "R-04",
+      "severity": "Low",
+      "location": "OQ4",
+      "finding": "Jira FCRM-6209 đang Cancelled; phạm vi cần nghiệp vụ xác nhận lại trước khi triển khai thật.",
+      "required_action": "Đã ghi nhận ở OQ4; người duyệt nên lưu ý rủi ro này.",
+      "status": "Resolved",
+      "reviewer_note": "Mục OQ4 cũ (Jira Cancelled) đã được gỡ khỏi bản này theo chủ ý người yêu cầu.",
+      "resolved_by_reviewer": true,
+      "resolved_in_review": true,
+      "introduced_in_review": false
+    },
+    {
+      "id": "R-05",
+      "severity": "Low",
+      "location": "FR14 / OQ4",
+      "finding": "Cách map customerCode/business_code của ECM mock sang từng CIF và từng loại hồ sơ PDF chưa định nghĩa.",
+      "required_action": "Đã ghi nhận ở OQ4 mới; chốt ở thiết kế.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-06",
+      "severity": "Low",
+      "location": "project.md",
+      "finding": "Rule bắt buộc LOG_DONE đã promote ở giai đoạn trước nay mâu thuẫn với quyết định bỏ LOG_DONE; cần được gỡ/điều chỉnh ở bước learnings để bộ nhớ không mâu thuẫn.",
+      "required_action": "Xử lý ở nghi thức learnings cuối giai đoạn.",
+      "status": "New",
+      "introduced_in_review": true
+    }
+  ],
+  "body": "## Review\n\n**Reviewer:** aidlc-product-lead-agent\n**Verdict:** READY\n**Iteration:** 1\n\nBản requirements đã cập nhật theo các thay đổi của người yêu cầu: chạy local với\nthư mục nguồn `/Users/hainguyen/Projects/RPA/AMLD/YYYYMM/YYYYMMDD`, bỏ hẳn cơ chế\nLOG_DONE, bổ sung FR14 lấy hồ sơ PDF qua ECM mock API (localhost:8831) với luồng\nauth → search → download rõ ràng, Kafka chuyển sang localhost:9092 không\nuser/pass topic RPA_STR_NHNN_INPUT, và email trạng thái dùng địa chỉ mới. Các\nthay đổi nhất quán giữa FR, Constraints (C4/C7/C8), Assumptions và Out of Scope\n(O2 ECM mock). ID truy vết được giữ và mở rộng hợp lý (thêm FR14, C8, OQ4 mới).\nMục tiêu nghiệp vụ và tiêu chí đo lường giữ nguyên. Sẵn sàng đưa ra cổng phê\nduyệt; các điểm dưới là gợi ý, không chặn.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n| R-01 | Still applies | Low | Schema message Kafka vẫn để mở (OQ1); đúng là việc của thiết kế, không chặn. |\n| R-02 | Still applies | Low | Phạm vi đo NFR2 vẫn chưa làm rõ end-to-end hay chỉ phần robot. |\n| R-03 | Still applies | Low | Vẫn chưa nêu ngưỡng số lần thử OCR captcha; để thiết kế quyết. |\n| R-04 | Fixed | Low | Mục OQ4 cũ (Jira Cancelled) đã được gỡ khỏi bản này theo chủ ý người yêu cầu. |\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n| Low | FR14 / OQ4 | Cách map customerCode/business_code của ECM mock sang từng CIF và từng loại hồ sơ PDF chưa định nghĩa. | Đã ghi nhận ở OQ4 mới; chốt ở thiết kế. |\n| Low | project.md | Rule bắt buộc LOG_DONE đã promote ở giai đoạn trước nay mâu thuẫn với quyết định bỏ LOG_DONE; cần được gỡ/điều chỉnh ở bước learnings để bộ nhớ không mâu thuẫn. | Xử lý ở nghi thức learnings cuối giai đoạn. |\n",
+  "recorded_at": "2026-10-09T05:12:08Z"
+}

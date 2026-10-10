@@ -1,0 +1,30 @@
+{
+  "stage": "functional-design",
+  "unit": "u1-consume-data",
+  "upstream_ids": [
+    "AC1.1.1", "AC1.1.2",
+    "AC1.2.1", "AC1.2.2",
+    "AC1.3.1", "AC1.3.2",
+    "AC1.4.1", "AC1.4.2", "AC1.4.3",
+    "AC1.5.1", "AC1.5.2",
+    "AC2.1.1", "AC2.1.2"
+  ],
+  "coverage": [
+    { "id": "AC1.1.1", "status": "OK", "target": "BR1.1" },
+    { "id": "AC1.1.2", "status": "OK", "target": "BR1.1" },
+    { "id": "AC1.2.1", "status": "OK", "target": "BR1.4" },
+    { "id": "AC1.2.2", "status": "OK", "target": "BR1.4" },
+    { "id": "AC1.3.1", "status": "OK", "target": "BR1.4" },
+    { "id": "AC1.3.2", "status": "OK", "target": "BR1.7" },
+    { "id": "AC1.4.1", "status": "OK", "target": "BR1.5" },
+    { "id": "AC1.4.2", "status": "OK", "target": "BR1.7" },
+    { "id": "AC1.4.3", "status": "OK", "target": "BR1.5" },
+    { "id": "AC1.5.1", "status": "OK", "target": "BR1.3" },
+    { "id": "AC1.5.2", "status": "OK", "target": "BR1.3" },
+    { "id": "AC2.1.1", "status": "OK", "target": "BR1.6" },
+    { "id": "AC2.1.2", "status": "OK", "target": "BR1.8" }
+  ],
+  "reverse": [
+    { "id": "BR1.2", "status": "N/A", "target": "quy tac idempotency ky thuat, nguoi dung yeu cau them, khong co AC rieng" }
+  ]
+}

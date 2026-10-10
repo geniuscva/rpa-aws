@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "targetId": "unit:u1-consume-data",
+  "intentId": "01a11ecf-7bb8-798f-a691-4b1b6b9d1f60",
+  "runFloor": "STAGE_JUMPED:2026-10-09T11:52:10Z#1",
+  "fingerprint": "sha256:v3:32ca55d147899e431b116471c45dc98bfc404337e6b9531bfdd1a598f19eba39",
+  "questionsFile": "aidlc/spaces/default/intents/261009-str-rpa-robot/construction/u1-consume-data/code-generation/code-generation-questions.md",
+  "promptSha256": "6552d8b3186d2780a4918358d6b8758c11e331e80fd11e4792831a876d13b65c",
+  "directiveEpoch": "sha256:10397c9def6826c4f63b9591428dc39bd14ccbc117c9dfe07f910f90fa2dbf0c",
+  "sourceFloor": "3a6a462489a81ad566e0b3dc620ace19dd3c63f22b65bec05ccc96203bc7b63e",
+  "markerRevision": 203,
+  "plannedSourceSha256": "3a6a462489a81ad566e0b3dc620ace19dd3c63f22b65bec05ccc96203bc7b63e",
+  "session": "sess_8b71d6dd-04d7-4097-b63b-97459f945380",
+  "challengeId": "4339e4e90f4e561e1f288cda0647ecb7",
+  "choice": "Approve Plan",
+  "questionsSha256": "6fd37d071dd8d57b3b66702d68cdc4e1228e1956777f5bb80b090481ba0058c4",
+  "certifiedSourceSha256": "3a6a462489a81ad566e0b3dc620ace19dd3c63f22b65bec05ccc96203bc7b63e",
+  "status": "generation"
+}

@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "stage": "units-generation",
+  "unit": null,
+  "workflow": null,
+  "attempt": "996894a7aa9f0b7d",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:1dd33cf3d925b3a603f5fddad52356cc",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:d2451556e276fb650cbad4dcb57c26df144cc312ba4c3669078e370684a1ca57",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "U5 depends_on U2",
+      "finding": "U5 phụ thuộc cả U4 và U2; hợp lý về tích hợp nhưng khiến chuỗi gần tuyến tính, ít cơ hội song song.",
+      "required_action": "Chấp nhận được; Delivery Planning cân nhắc khi xếp Bolt.",
+      "status": "Unresolved"
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "US5.1 cross-cutting",
+      "finding": "Ràng buộc không-hardcode-secrets trải trên nhiều Unit; cần đảm bảo mỗi Unit adapter tuân thủ khi hiện thực.",
+      "required_action": "Nhắc lại ở Functional Design từng Unit.",
+      "status": "Unresolved"
+    },
+    {
+      "id": "R-03",
+      "severity": "Low",
+      "location": "Walking skeleton",
+      "finding": "Practices ghi skeleton-on nhưng phân rã mới bỏ skeleton theo yêu cầu người dùng; nên đồng bộ lại kỳ vọng này ở Delivery Planning (checkpoint skeleton không áp dụng).",
+      "required_action": "Delivery Planning xác nhận không có skeleton checkpoint.",
+      "status": "New"
+    },
+    {
+      "id": "R-04",
+      "severity": "Low",
+      "location": "StrRecord",
+      "finding": "Một số cột (BOT_GHICHU ghi bởi U4/U5) có hai cấu phần cùng chạm; cần quy ước rõ ai ghi phần nào ở Functional Design để tránh ghi đè.",
+      "required_action": "Làm rõ ở Functional Design/Contract Design.",
+      "status": "New"
+    }
+  ],
+  "derived_findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "U5 depends_on U2",
+      "finding": "U5 phụ thuộc cả U4 và U2; hợp lý về tích hợp nhưng khiến chuỗi gần tuyến tính, ít cơ hội song song.",
+      "required_action": "Chấp nhận được; Delivery Planning cân nhắc khi xếp Bolt.",
+      "status": "New",
+      "not_rechecked": true,
+      "resolved_in_review": false,
+      "introduced_in_review": false
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "US5.1 cross-cutting",
+      "finding": "Ràng buộc không-hardcode-secrets trải trên nhiều Unit; cần đảm bảo mỗi Unit adapter tuân thủ khi hiện thực.",
+      "required_action": "Nhắc lại ở Functional Design từng Unit.",
+      "status": "New",
+      "not_rechecked": true,
+      "resolved_in_review": false,
+      "introduced_in_review": false
+    },
+    {
+      "id": "R-03",
+      "severity": "Low",
+      "location": "Walking skeleton",
+      "finding": "Practices ghi skeleton-on nhưng phân rã mới bỏ skeleton theo yêu cầu người dùng; nên đồng bộ lại kỳ vọng này ở Delivery Planning (checkpoint skeleton không áp dụng).",
+      "required_action": "Delivery Planning xác nhận không có skeleton checkpoint.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-04",
+      "severity": "Low",
+      "location": "StrRecord",
+      "finding": "Một số cột (BOT_GHICHU ghi bởi U4/U5) có hai cấu phần cùng chạm; cần quy ước rõ ai ghi phần nào ở Functional Design để tránh ghi đè.",
+      "required_action": "Làm rõ ở Functional Design/Contract Design.",
+      "status": "New",
+      "introduced_in_review": true
+    }
+  ],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nPhân rã lại thành 5 cấu phần pipeline tuần tự (ConsumeData → DataEntryAccuity →\nDataEntryTraCuuThue → DataEntryAMLD → TongHopVaGuiMail) phản ánh đúng yêu cầu của\nngười dùng. Edge block YAML well-formed, cycle-free, chuỗi tuyến tính rõ ràng,\ntên unit đúng định dạng path-segment, kind đều service. Hợp đồng dữ liệu\n`StrRecord` theo CIF được định nghĩa tường minh với đầy đủ cột người dùng liệt\nkê và chỉ rõ cấu phần nào ghi cột nào — một điểm mạnh cho khả năng phát triển/test\nđộc lập. Story map phủ đủ US1.1–US6.2, mọi Unit có hàng, khớp traceability\n(không GAP). Không còn walking skeleton riêng, nhất quán với quyết định mới của\nngười dùng. Sẵn sàng cho cổng; các điểm dưới là gợi ý.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n| Low | Walking skeleton | Practices ghi skeleton-on nhưng phân rã mới bỏ skeleton theo yêu cầu người dùng; nên đồng bộ lại kỳ vọng này ở Delivery Planning (checkpoint skeleton không áp dụng). | Delivery Planning xác nhận không có skeleton checkpoint. |\n| Low | StrRecord | Một số cột (BOT_GHICHU ghi bởi U4/U5) có hai cấu phần cùng chạm; cần quy ước rõ ai ghi phần nào ở Functional Design để tránh ghi đè. | Làm rõ ở Functional Design/Contract Design. |\n",
+  "recorded_at": "2026-10-09T06:30:13Z"
+}

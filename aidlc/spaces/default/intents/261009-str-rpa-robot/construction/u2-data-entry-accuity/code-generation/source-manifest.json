@@ -1,0 +1,13 @@
+{
+  "stage": "code-generation",
+  "unit": "u2-data-entry-accuity",
+  "version": 1,
+  "writes": [
+    { "path": "robot/u2_accuity/__init__.py" },
+    { "path": "robot/u2_accuity/accuity_adapter.py" },
+    { "path": "robot/u2_accuity/accuity_stage.py" },
+    { "path": "tests/u2_accuity/__init__.py" },
+    { "path": "tests/u2_accuity/test_accuity_adapter.py" },
+    { "path": "tests/u2_accuity/test_accuity_stage.py" }
+  ]
+}

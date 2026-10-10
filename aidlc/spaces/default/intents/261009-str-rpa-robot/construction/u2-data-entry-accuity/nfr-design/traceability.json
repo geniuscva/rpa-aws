@@ -1,0 +1,12 @@
+{
+  "stage": "nfr-design",
+  "unit": "u2-data-entry-accuity",
+  "upstream_ids": ["PERF-U2-1", "SEC-U2-1", "REL-U2-1", "OBS-U2-1", "SCAL-U2-1"],
+  "coverage": [
+    { "id": "PERF-U2-1", "status": "OK", "target": "performance-design.md" },
+    { "id": "SEC-U2-1", "status": "OK", "target": "security-design.md" },
+    { "id": "REL-U2-1", "status": "OK", "target": "reliability-design.md" },
+    { "id": "OBS-U2-1", "status": "OK", "target": "observability-design.md" },
+    { "id": "SCAL-U2-1", "status": "OK", "target": "scalability-design.md" }
+  ]
+}

@@ -1,0 +1,2368 @@
+{
+  "workflow_id": "2026-10-09T03:57:56Z",
+  "scope": "classic",
+  "started_at": "2026-10-09T03:57:56Z",
+  "stages": [
+    {
+      "stage_slug": "workspace-scaffold",
+      "started_at": "2026-10-09T03:57:56Z",
+      "completed_at": "2026-10-09T03:57:56Z",
+      "agent": "orchestrator",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/initialization/workspace-scaffold/memory.md",
+      "memory_entries": null,
+      "memory_breakdown": null,
+      "sensor_firings": [],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "workspace-detection",
+      "started_at": "2026-10-09T03:57:56Z",
+      "completed_at": "2026-10-09T03:57:56Z",
+      "agent": "orchestrator",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/initialization/workspace-detection/memory.md",
+      "memory_entries": null,
+      "memory_breakdown": null,
+      "sensor_firings": [],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "state-init",
+      "started_at": "2026-10-09T03:57:56Z",
+      "completed_at": "2026-10-09T03:57:56Z",
+      "agent": "orchestrator",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/initialization/state-init/memory.md",
+      "memory_entries": null,
+      "memory_breakdown": null,
+      "sensor_firings": [],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "practices-discovery",
+      "started_at": "2026-10-09T03:57:56Z",
+      "completed_at": "2026-10-09T04:21:08Z",
+      "agent": "aidlc-pipeline-deploy-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/inception/practices-discovery/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "required-sections",
+          "fire_id": "ab4b7646",
+          "result": "passed",
+          "ts": "2026-10-09T04:18:53Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "833cd1a2",
+          "result": "passed",
+          "ts": "2026-10-09T04:18:53Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "5972ddd2",
+          "result": "passed",
+          "ts": "2026-10-09T04:18:53Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "2ea7a0f0",
+          "result": "passed",
+          "ts": "2026-10-09T04:18:53Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "1655117a",
+          "result": "passed",
+          "ts": "2026-10-09T04:18:54Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "1e516232",
+          "result": "passed",
+          "ts": "2026-10-09T04:18:54Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "e1004e2c",
+          "result": "passed",
+          "ts": "2026-10-09T04:18:54Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "42ed02fb",
+          "result": "passed",
+          "ts": "2026-10-09T04:18:54Z"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "requirements-analysis",
+      "started_at": "2026-10-09T04:21:08Z",
+      "completed_at": "2026-10-09T05:38:26Z",
+      "agent": "aidlc-product-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/inception/requirements-analysis/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "required-sections",
+          "fire_id": "c0118d38",
+          "result": "passed",
+          "ts": "2026-10-09T04:46:59Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "7e615267",
+          "result": "passed",
+          "ts": "2026-10-09T04:46:59Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "73f403c3",
+          "result": "failed",
+          "ts": "2026-10-09T04:46:59Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/requirements-analysis/upstream-coverage-73f403c3.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "d73136e9",
+          "result": "failed",
+          "ts": "2026-10-09T04:46:59Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/requirements-analysis/upstream-coverage-d73136e9.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "198173d9",
+          "result": "passed",
+          "ts": "2026-10-09T05:12:33Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "f27fc893",
+          "result": "passed",
+          "ts": "2026-10-09T05:12:33Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "35172fd6",
+          "result": "failed",
+          "ts": "2026-10-09T05:12:33Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/requirements-analysis/upstream-coverage-35172fd6.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "b0d819a5",
+          "result": "failed",
+          "ts": "2026-10-09T05:12:34Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/requirements-analysis/upstream-coverage-b0d819a5.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "1c79888a",
+          "result": "passed",
+          "ts": "2026-10-09T05:36:51Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "fadb8447",
+          "result": "passed",
+          "ts": "2026-10-09T05:36:51Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "247b35d8",
+          "result": "failed",
+          "ts": "2026-10-09T05:36:51Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/requirements-analysis/upstream-coverage-247b35d8.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "722698b6",
+          "result": "failed",
+          "ts": "2026-10-09T05:36:51Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/requirements-analysis/upstream-coverage-722698b6.md"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "user-stories",
+      "started_at": "2026-10-09T05:38:26Z",
+      "completed_at": "2026-10-09T05:50:20Z",
+      "agent": "aidlc-product-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/inception/user-stories/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "traceability",
+          "fire_id": "3b6ddf61",
+          "result": "failed",
+          "ts": "2026-10-09T05:46:32Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/user-stories/traceability-3b6ddf61.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "833d034d",
+          "result": "failed",
+          "ts": "2026-10-09T05:46:33Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/user-stories/traceability-833d034d.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "1f25ce7e",
+          "result": "passed",
+          "ts": "2026-10-09T05:47:55Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "cbe162a5",
+          "result": "passed",
+          "ts": "2026-10-09T05:47:55Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "e093f4d7",
+          "result": "passed",
+          "ts": "2026-10-09T05:47:55Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "12477223",
+          "result": "passed",
+          "ts": "2026-10-09T05:47:55Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "d673b0bd",
+          "result": "failed",
+          "ts": "2026-10-09T05:47:56Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/user-stories/upstream-coverage-d673b0bd.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "a89839fc",
+          "result": "failed",
+          "ts": "2026-10-09T05:47:56Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/user-stories/upstream-coverage-a89839fc.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "770eae44",
+          "result": "failed",
+          "ts": "2026-10-09T05:47:56Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/user-stories/upstream-coverage-770eae44.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "d181aa40",
+          "result": "failed",
+          "ts": "2026-10-09T05:47:56Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/user-stories/upstream-coverage-d181aa40.md"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "refined-mockups",
+      "started_at": "2026-10-09T05:50:20Z",
+      "completed_at": null,
+      "agent": "aidlc-design-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/inception/refined-mockups/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [],
+      "outcome": "pending",
+      "learnings_captured": null
+    },
+    {
+      "stage_slug": "domain-design",
+      "started_at": "2026-10-09T05:52:20Z",
+      "completed_at": "2026-10-09T06:07:35Z",
+      "agent": "aidlc-architect-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/inception/domain-design/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "traceability",
+          "fire_id": "05c7fd70",
+          "result": "passed",
+          "ts": "2026-10-09T05:57:45Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "104cd188",
+          "result": "passed",
+          "ts": "2026-10-09T05:57:46Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "e4238953",
+          "result": "passed",
+          "ts": "2026-10-09T05:58:42Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "79a52cfe",
+          "result": "passed",
+          "ts": "2026-10-09T05:58:42Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "9cfee749",
+          "result": "passed",
+          "ts": "2026-10-09T05:58:42Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "5009df7a",
+          "result": "failed",
+          "ts": "2026-10-09T05:58:42Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/domain-design/upstream-coverage-5009df7a.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "80975f96",
+          "result": "failed",
+          "ts": "2026-10-09T05:58:43Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/domain-design/upstream-coverage-80975f96.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "5b59a931",
+          "result": "failed",
+          "ts": "2026-10-09T05:58:43Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/domain-design/upstream-coverage-5b59a931.md"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "units-generation",
+      "started_at": "2026-10-09T06:07:36Z",
+      "completed_at": "2026-10-09T06:40:22Z",
+      "agent": "aidlc-architect-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/inception/units-generation/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "traceability",
+          "fire_id": "e5b515d9",
+          "result": "failed",
+          "ts": "2026-10-09T06:13:51Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/units-generation/traceability-e5b515d9.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "e960359f",
+          "result": "failed",
+          "ts": "2026-10-09T06:13:51Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/units-generation/traceability-e960359f.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "fde3b574",
+          "result": "passed",
+          "ts": "2026-10-09T06:15:06Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "d515df5a",
+          "result": "passed",
+          "ts": "2026-10-09T06:15:06Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "b4fa2aaa",
+          "result": "passed",
+          "ts": "2026-10-09T06:15:06Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "49d692fb",
+          "result": "passed",
+          "ts": "2026-10-09T06:15:06Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "c14ae973",
+          "result": "failed",
+          "ts": "2026-10-09T06:15:07Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/units-generation/upstream-coverage-c14ae973.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "fe2b135b",
+          "result": "failed",
+          "ts": "2026-10-09T06:15:07Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/units-generation/upstream-coverage-fe2b135b.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "a0fffc23",
+          "result": "failed",
+          "ts": "2026-10-09T06:15:07Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/units-generation/upstream-coverage-a0fffc23.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "23fa7f89",
+          "result": "failed",
+          "ts": "2026-10-09T06:15:07Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/units-generation/upstream-coverage-23fa7f89.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "d6c0cc36",
+          "result": "passed",
+          "ts": "2026-10-09T06:29:29Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "39dbfdbb",
+          "result": "passed",
+          "ts": "2026-10-09T06:29:30Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "d9682570",
+          "result": "passed",
+          "ts": "2026-10-09T06:30:14Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "9879d378",
+          "result": "passed",
+          "ts": "2026-10-09T06:30:14Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "578d0282",
+          "result": "passed",
+          "ts": "2026-10-09T06:30:14Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "20201d1b",
+          "result": "passed",
+          "ts": "2026-10-09T06:30:14Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "cf65b723",
+          "result": "failed",
+          "ts": "2026-10-09T06:30:14Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/units-generation/upstream-coverage-cf65b723.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "495116ac",
+          "result": "failed",
+          "ts": "2026-10-09T06:30:15Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/units-generation/upstream-coverage-495116ac.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "216afb93",
+          "result": "failed",
+          "ts": "2026-10-09T06:30:15Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/units-generation/upstream-coverage-216afb93.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "501d92f2",
+          "result": "failed",
+          "ts": "2026-10-09T06:30:15Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/units-generation/upstream-coverage-501d92f2.md"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "contract-design",
+      "started_at": "2026-10-09T06:40:22Z",
+      "completed_at": "2026-10-09T06:54:29Z",
+      "agent": "aidlc-architect-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/inception/contract-design/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "required-sections",
+          "fire_id": "e04f91af",
+          "result": "passed",
+          "ts": "2026-10-09T06:46:54Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "8ee9ff88",
+          "result": "failed",
+          "ts": "2026-10-09T06:46:54Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/contract-design/upstream-coverage-8ee9ff88.md"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "delivery-planning",
+      "started_at": "2026-10-09T06:54:29Z",
+      "completed_at": "2026-10-09T07:19:52Z",
+      "agent": "aidlc-delivery-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/inception/delivery-planning/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "required-sections",
+          "fire_id": "c76cecd9",
+          "result": "passed",
+          "ts": "2026-10-09T07:18:37Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "ad539900",
+          "result": "failed",
+          "ts": "2026-10-09T07:18:37Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/delivery-planning/required-sections-ad539900.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "1c2050e6",
+          "result": "passed",
+          "ts": "2026-10-09T07:18:37Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "e9b1a03c",
+          "result": "failed",
+          "ts": "2026-10-09T07:18:38Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/delivery-planning/required-sections-e9b1a03c.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "dee5408b",
+          "result": "passed",
+          "ts": "2026-10-09T07:18:38Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "eebe1991",
+          "result": "failed",
+          "ts": "2026-10-09T07:18:38Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/delivery-planning/upstream-coverage-eebe1991.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "765dceee",
+          "result": "failed",
+          "ts": "2026-10-09T07:18:38Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/delivery-planning/upstream-coverage-765dceee.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "c69e6e2a",
+          "result": "failed",
+          "ts": "2026-10-09T07:18:39Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/delivery-planning/upstream-coverage-c69e6e2a.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "58232ee6",
+          "result": "failed",
+          "ts": "2026-10-09T07:18:39Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/delivery-planning/upstream-coverage-58232ee6.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "a209d064",
+          "result": "failed",
+          "ts": "2026-10-09T07:18:39Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/delivery-planning/upstream-coverage-a209d064.md"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "functional-design",
+      "started_at": "2026-10-09T07:19:52Z",
+      "completed_at": "2026-10-09T10:27:03Z",
+      "agent": "aidlc-architect-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/construction/functional-design/memory.md",
+      "memory_entries": 3,
+      "memory_breakdown": {
+        "interpretations": 3,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "traceability",
+          "fire_id": "f35b74f4",
+          "result": "passed",
+          "ts": "2026-10-09T07:34:13Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "8b1fc634",
+          "result": "passed",
+          "ts": "2026-10-09T07:34:13Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "31076e7d",
+          "result": "passed",
+          "ts": "2026-10-09T09:12:36Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "528b5e28",
+          "result": "passed",
+          "ts": "2026-10-09T09:12:37Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "301e4e99",
+          "result": "failed",
+          "ts": "2026-10-09T09:27:16Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/traceability-301e4e99.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "b4ec32a9",
+          "result": "failed",
+          "ts": "2026-10-09T09:27:17Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/traceability-b4ec32a9.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "6f013912",
+          "result": "passed",
+          "ts": "2026-10-09T09:27:44Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "f792733f",
+          "result": "passed",
+          "ts": "2026-10-09T09:27:44Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "b8877916",
+          "result": "passed",
+          "ts": "2026-10-09T09:38:40Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "40100813",
+          "result": "passed",
+          "ts": "2026-10-09T09:38:41Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "7bc17fc7",
+          "result": "passed",
+          "ts": "2026-10-09T09:48:22Z"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "5bf6929c",
+          "result": "passed",
+          "ts": "2026-10-09T09:48:23Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "1a6a491b",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:48Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "04478347",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:49Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "25d1bfcc",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:49Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "b81632ca",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:49Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "bdbec6fb",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:49Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "73327d89",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:49Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "c39ac270",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:49Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "7929f148",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:50Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "1bd12de8",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:50Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "d76bb466",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:50Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "0bf31bd8",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:50Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "8a55092a",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:50Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "fb8db864",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:50Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "61ee1a12",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:50Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "8c47ef00",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:51Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "59c4c5a4",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:51Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "4c86c47e",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:51Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "8dace382",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:51Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "bf4e0446",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:51Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "c794ec8a",
+          "result": "passed",
+          "ts": "2026-10-09T10:26:51Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "9483046c",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:52Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-9483046c.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "c6a8c2eb",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:52Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-c6a8c2eb.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "83e57884",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:52Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-83e57884.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "d09e98cd",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:52Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-d09e98cd.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "96f71caf",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:52Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-96f71caf.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "4f093c29",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:53Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-4f093c29.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "cc23c3a6",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:53Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-cc23c3a6.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "16e72b66",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:53Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-16e72b66.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "f9aa00bb",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:53Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-f9aa00bb.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "3f763b48",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:53Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-3f763b48.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "5992673f",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:54Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-5992673f.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "1c07dac0",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:54Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-1c07dac0.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "9d6ce527",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:54Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-9d6ce527.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "90b93c61",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:54Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-90b93c61.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "7075120d",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:54Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-7075120d.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "24dedcd0",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:55Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-24dedcd0.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "054093bb",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:55Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-054093bb.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "d3f30f00",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:55Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-d3f30f00.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "180650d2",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:55Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-180650d2.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "182e1b5c",
+          "result": "failed",
+          "ts": "2026-10-09T10:26:55Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/functional-design/upstream-coverage-182e1b5c.md"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "nfr-requirements",
+      "started_at": "2026-10-09T10:27:43Z",
+      "completed_at": "2026-10-09T11:06:38Z",
+      "agent": "aidlc-architect-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/construction/nfr-requirements/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "traceability",
+          "fire_id": "a9c5f2d6",
+          "result": "failed",
+          "ts": "2026-10-09T10:58:37Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/traceability-a9c5f2d6.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "463e2f23",
+          "result": "failed",
+          "ts": "2026-10-09T10:58:38Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/traceability-463e2f23.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "29f2135c",
+          "result": "failed",
+          "ts": "2026-10-09T11:02:56Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/traceability-29f2135c.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "9ea5e7d6",
+          "result": "failed",
+          "ts": "2026-10-09T11:02:57Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/traceability-9ea5e7d6.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "1b74aed9",
+          "result": "failed",
+          "ts": "2026-10-09T11:04:07Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/traceability-1b74aed9.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "69348747",
+          "result": "failed",
+          "ts": "2026-10-09T11:04:07Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/traceability-69348747.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "6a41d382",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:16Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-6a41d382.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "77a322e1",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:16Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-77a322e1.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "e5ddb524",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:16Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-e5ddb524.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "117b32f0",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:16Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-117b32f0.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "a478dfa0",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:16Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-a478dfa0.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "4d1241e7",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:17Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-4d1241e7.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "fc3ac0ff",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:17Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "2974369b",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:17Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "2398ae62",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:17Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "034e3370",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:17Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "56756d6a",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:17Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "46b15b29",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:18Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "9a403938",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:18Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "bbee2d35",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:18Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "786db61a",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:18Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-786db61a.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "bd6991da",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:18Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-bd6991da.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "05f93513",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:18Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-05f93513.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "5de4a2bf",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:18Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-5de4a2bf.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "f4bb5642",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:19Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-f4bb5642.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "f6abf586",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:19Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-f6abf586.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "cadfc73c",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:19Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "35e0b85e",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:19Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-35e0b85e.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "14d1353c",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:19Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-14d1353c.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "a8b21534",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:19Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-a8b21534.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "dabd8ce7",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:20Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-dabd8ce7.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "b193b01e",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:20Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-b193b01e.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "9cfccd2f",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:20Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/required-sections-9cfccd2f.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "e17d2498",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:20Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "ce40a870",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:20Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "e5c6390d",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:20Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "3843afca",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:21Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "6f1753f5",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:21Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "be607506",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:21Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "8c8c29f3",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:21Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "7dbd08d7",
+          "result": "passed",
+          "ts": "2026-10-09T11:06:21Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "e847c2d3",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:21Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-e847c2d3.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "5766c053",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:22Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-5766c053.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "eb064200",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:22Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-eb064200.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "e7f360fa",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:22Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-e7f360fa.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "6b06b35f",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:22Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-6b06b35f.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "7e2ae3fa",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-7e2ae3fa.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "0d84e072",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-0d84e072.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "fd25d95d",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-fd25d95d.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "20278ae0",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-20278ae0.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "3bfd77af",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-3bfd77af.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "4fdc8910",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-4fdc8910.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "cc6e23d9",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-cc6e23d9.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "4d0e2d5b",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-4d0e2d5b.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "4df9e2c3",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-4df9e2c3.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "f81346e5",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-f81346e5.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "7a97d659",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-7a97d659.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "ff4980a1",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-ff4980a1.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "a50247d0",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-a50247d0.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "b96b9d6b",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-b96b9d6b.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "c8d02134",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:26Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-c8d02134.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "c34b9c9a",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:26Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-c34b9c9a.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "38148f6b",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:26Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-38148f6b.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "be485be0",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:26Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-be485be0.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "abbe2daf",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:26Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-abbe2daf.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "a91aa3d1",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:27Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-a91aa3d1.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "abb84386",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:27Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-abb84386.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "ae0c6481",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:27Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-ae0c6481.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "f472ba37",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:27Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-f472ba37.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "48c373ac",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:27Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-48c373ac.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "2a94ad85",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:28Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-2a94ad85.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "d2b86572",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:28Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-d2b86572.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "5b992761",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:28Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-5b992761.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "3fcebc56",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:28Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-3fcebc56.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "43fea9c0",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:29Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-43fea9c0.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "ac1f1d65",
+          "result": "failed",
+          "ts": "2026-10-09T11:06:29Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-requirements/upstream-coverage-ac1f1d65.md"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "nfr-design",
+      "started_at": "2026-10-09T11:06:38Z",
+      "completed_at": "2026-10-09T11:12:46Z",
+      "agent": "aidlc-architect-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/construction/nfr-design/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "traceability",
+          "fire_id": "3fb4c866",
+          "result": "failed",
+          "ts": "2026-10-09T11:07:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/traceability-3fb4c866.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "6c11938c",
+          "result": "failed",
+          "ts": "2026-10-09T11:07:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/traceability-6c11938c.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "98a2e2bf",
+          "result": "failed",
+          "ts": "2026-10-09T11:08:42Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/traceability-98a2e2bf.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "26506a2f",
+          "result": "failed",
+          "ts": "2026-10-09T11:08:42Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/traceability-26506a2f.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "1169625d",
+          "result": "failed",
+          "ts": "2026-10-09T11:09:55Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/traceability-1169625d.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "fe8a3435",
+          "result": "failed",
+          "ts": "2026-10-09T11:09:56Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/traceability-fe8a3435.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "0de747f3",
+          "result": "failed",
+          "ts": "2026-10-09T11:10:57Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/traceability-0de747f3.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "bd1a594d",
+          "result": "failed",
+          "ts": "2026-10-09T11:10:58Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/traceability-bd1a594d.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "06c7f61a",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:20Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-06c7f61a.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "ea98afea",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:20Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-ea98afea.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "095abe48",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:21Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-095abe48.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "78b90918",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:21Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-78b90918.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "4f904789",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:21Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-4f904789.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "2ebbd7b2",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:21Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-2ebbd7b2.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "c23814f6",
+          "result": "passed",
+          "ts": "2026-10-09T11:12:21Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "3b0cb102",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:21Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-3b0cb102.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "2ee2c09c",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:22Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-2ee2c09c.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "2bff4cdf",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:22Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-2bff4cdf.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "b5175847",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:22Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-b5175847.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "25279186",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:22Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-25279186.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "5d34d6de",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:22Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-5d34d6de.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "bfcdd370",
+          "result": "passed",
+          "ts": "2026-10-09T11:12:22Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "e5b29f19",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-e5b29f19.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "43383d20",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-43383d20.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "b4379ed5",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-b4379ed5.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "7e79f639",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-7e79f639.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "800d55cb",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-800d55cb.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "2d7124be",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-2d7124be.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "03c47c69",
+          "result": "passed",
+          "ts": "2026-10-09T11:12:23Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "f2be6b88",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-f2be6b88.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "98c65b5b",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-98c65b5b.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "ae5ece82",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-ae5ece82.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "508ed28f",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-508ed28f.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "2984b217",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-2984b217.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "0df272b1",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-0df272b1.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "3f090dff",
+          "result": "passed",
+          "ts": "2026-10-09T11:12:25Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "7033d0cd",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-7033d0cd.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "12ebd041",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-12ebd041.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "ec2141a9",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-ec2141a9.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "b3df5102",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-b3df5102.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "1b31f9ce",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-1b31f9ce.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "b4f7fa5e",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:26Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/required-sections-b4f7fa5e.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "768e5b08",
+          "result": "passed",
+          "ts": "2026-10-09T11:12:26Z"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "d2471591",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:26Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-d2471591.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "67d93304",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:26Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-67d93304.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "b263595f",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:27Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-b263595f.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "0742b886",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:27Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-0742b886.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "a3b17328",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:27Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-a3b17328.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "bff11d9a",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:27Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-bff11d9a.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "f294df9d",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:28Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-f294df9d.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "1415f69b",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:28Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-1415f69b.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "c18340a3",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:28Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-c18340a3.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "644af4e9",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:29Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-644af4e9.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "0238ee0d",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:29Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-0238ee0d.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "694e67b8",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:29Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-694e67b8.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "1af419bb",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:29Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-1af419bb.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "056fbb11",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:30Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-056fbb11.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "4f894546",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:30Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-4f894546.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "68306df7",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:30Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-68306df7.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "475db3c5",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:31Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-475db3c5.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "b797983c",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:31Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-b797983c.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "dddf5bc7",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:31Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-dddf5bc7.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "18ea5c6c",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:31Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-18ea5c6c.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "0f4a11b7",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:32Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-0f4a11b7.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "878a1710",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:32Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-878a1710.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "b029edf7",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:32Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-b029edf7.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "729bf961",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:32Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-729bf961.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "67ae6e01",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:33Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-67ae6e01.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "89ebd7d7",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:33Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-89ebd7d7.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "8bcdce1d",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:33Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-8bcdce1d.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "01f2e455",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:34Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-01f2e455.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "f539418b",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:34Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-f539418b.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "f3055b1f",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:34Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-f3055b1f.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "10332ab4",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:34Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-10332ab4.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "0d757b20",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:35Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-0d757b20.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "8750c0a4",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:35Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-8750c0a4.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "00677bb5",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:35Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-00677bb5.md"
+        },
+        {
+          "id": "upstream-coverage",
+          "fire_id": "70796453",
+          "result": "failed",
+          "ts": "2026-10-09T11:12:36Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/nfr-design/upstream-coverage-70796453.md"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "infrastructure-design",
+      "started_at": "2026-10-09T11:52:10Z",
+      "completed_at": null,
+      "agent": "aidlc-aws-platform-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/construction/infrastructure-design/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [],
+      "outcome": "pending",
+      "learnings_captured": null
+    },
+    {
+      "stage_slug": "code-generation",
+      "started_at": "2026-10-09T13:11:46Z",
+      "completed_at": "2026-10-09T14:07:46Z",
+      "agent": "aidlc-developer-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/construction/code-generation/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [
+        {
+          "id": "traceability",
+          "fire_id": "2d459d6d",
+          "result": "failed",
+          "ts": "2026-10-09T14:04:07Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/code-generation/traceability-2d459d6d.md"
+        },
+        {
+          "id": "traceability",
+          "fire_id": "01505cfa",
+          "result": "failed",
+          "ts": "2026-10-09T14:04:08Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/code-generation/traceability-01505cfa.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "aa5e79d1",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:22Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "25499fb2",
+          "result": "failed",
+          "ts": "2026-10-09T14:07:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/code-generation/required-sections-25499fb2.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "3c32cc97",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:23Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "7361feb8",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:23Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "cc3049ed",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:23Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "07b807f4",
+          "result": "failed",
+          "ts": "2026-10-09T14:07:23Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/code-generation/required-sections-07b807f4.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "776b6f6d",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:23Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "d3180348",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:24Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "90a815d3",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:24Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "46a72c06",
+          "result": "failed",
+          "ts": "2026-10-09T14:07:24Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/code-generation/required-sections-46a72c06.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "39456658",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:24Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "3a5d8e33",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:24Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "5a9407ce",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:24Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "82cb3718",
+          "result": "failed",
+          "ts": "2026-10-09T14:07:25Z",
+          "detail_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/.aidlc-engine/sensors/code-generation/required-sections-82cb3718.md"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "ada7d698",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:25Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "11c179a2",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:25Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "d041eaf1",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:25Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "64fddb49",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:25Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "6918427e",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:25Z"
+        },
+        {
+          "id": "required-sections",
+          "fire_id": "ae886cf1",
+          "result": "passed",
+          "ts": "2026-10-09T14:07:26Z"
+        }
+      ],
+      "outcome": "approved",
+      "learnings_captured": {
+        "from_orchestrator": 0,
+        "from_user_addition": 0
+      }
+    },
+    {
+      "stage_slug": "build-and-test",
+      "started_at": "2026-10-09T14:07:46Z",
+      "completed_at": null,
+      "agent": "aidlc-quality-agent",
+      "memory_path": "aidlc/spaces/default/intents/261009-str-rpa-robot/construction/build-and-test/memory.md",
+      "memory_entries": 0,
+      "memory_breakdown": {
+        "interpretations": 0,
+        "deviations": 0,
+        "tradeoffs": 0,
+        "open_questions": 0
+      },
+      "sensor_firings": [],
+      "outcome": "pending",
+      "learnings_captured": null
+    }
+  ],
+  "bolt_dag": {
+    "units": [
+      {
+        "name": "u1-consume-data",
+        "depends_on": [],
+        "kind": "service"
+      },
+      {
+        "name": "u2-data-entry-accuity",
+        "depends_on": [
+          "u1-consume-data"
+        ],
+        "kind": "service"
+      },
+      {
+        "name": "u3-data-entry-tracuuthue",
+        "depends_on": [
+          "u1-consume-data"
+        ],
+        "kind": "service"
+      },
+      {
+        "name": "u4-data-entry-amld",
+        "depends_on": [
+          "u2-data-entry-accuity",
+          "u3-data-entry-tracuuthue"
+        ],
+        "kind": "service"
+      },
+      {
+        "name": "u5-tonghop-guimail",
+        "depends_on": [
+          "u4-data-entry-amld"
+        ],
+        "kind": "service"
+      }
+    ],
+    "batches": [
+      [
+        "u1-consume-data"
+      ],
+      [
+        "u2-data-entry-accuity",
+        "u3-data-entry-tracuuthue"
+      ],
+      [
+        "u4-data-entry-amld"
+      ],
+      [
+        "u5-tonghop-guimail"
+      ]
+    ]
+  }
+}

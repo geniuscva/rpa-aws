@@ -1,0 +1,17 @@
+{
+  "stage": "nfr-design",
+  "unit": "u1-consume-data",
+  "upstream_ids": ["PERF-U1-1", "SEC-U1-1", "SEC-U1-3", "SEC-U1-5", "REL-U1-1", "REL-U1-2", "REL-U1-3", "REL-U1-4", "OBS-U1-1", "SCAL-U1-1"],
+  "coverage": [
+    { "id": "PERF-U1-1", "status": "OK", "target": "performance-design.md" },
+    { "id": "SEC-U1-1", "status": "OK", "target": "ConfigProvider" },
+    { "id": "SEC-U1-3", "status": "OK", "target": "StructuredLogger" },
+    { "id": "SEC-U1-5", "status": "OK", "target": "EcmClientAdapter" },
+    { "id": "REL-U1-1", "status": "OK", "target": "StrRecordBuilder" },
+    { "id": "REL-U1-2", "status": "OK", "target": "EcmClientAdapter" },
+    { "id": "REL-U1-3", "status": "OK", "target": "IdempotencyStore" },
+    { "id": "REL-U1-4", "status": "OK", "target": "KafkaConsumerAdapter" },
+    { "id": "OBS-U1-1", "status": "OK", "target": "StructuredLogger" },
+    { "id": "SCAL-U1-1", "status": "OK", "target": "scalability-design.md" }
+  ]
+}

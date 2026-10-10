@@ -1,0 +1,33 @@
+{
+  "stage": "code-generation",
+  "unit": "u1-consume-data",
+  "version": 1,
+  "writes": [
+    { "path": "requirements.txt" },
+    { "path": ".gitignore" },
+    { "path": "pytest.ini" },
+    { "path": "data/config.example.yaml" },
+    { "path": "robot/__init__.py" },
+    { "path": "robot/models.py" },
+    { "path": "robot/config.py" },
+    { "path": "robot/logging_setup.py" },
+    { "path": "robot/pipeline.py" },
+    { "path": "robot/u1_consume/__init__.py" },
+    { "path": "robot/u1_consume/kafka_consumer.py" },
+    { "path": "robot/u1_consume/idempotency.py" },
+    { "path": "robot/u1_consume/source_folder.py" },
+    { "path": "robot/u1_consume/classifier.py" },
+    { "path": "robot/u1_consume/excel_reader.py" },
+    { "path": "robot/u1_consume/ecm_client.py" },
+    { "path": "robot/u1_consume/cashflow.py" },
+    { "path": "robot/u1_consume/consume_stage.py" },
+    { "path": "tests/__init__.py" },
+    { "path": "tests/u1_consume/__init__.py" },
+    { "path": "tests/u1_consume/test_idempotency.py" },
+    { "path": "tests/u1_consume/test_kafka_consumer.py" },
+    { "path": "tests/u1_consume/test_source_folder.py" },
+    { "path": "tests/u1_consume/test_cashflow.py" },
+    { "path": "tests/u1_consume/test_ecm_client.py" },
+    { "path": "tests/u1_consume/test_consume_stage.py" }
+  ]
+}

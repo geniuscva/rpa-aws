@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "stage": "functional-design",
+  "unit": "u2-data-entry-accuity",
+  "workflow": null,
+  "attempt": "3f814d7fed62fa20",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:b493e6688af7a5786b3f82ccbe760b0f",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:b6622ccacdb5a93dc8f0b9ceed01f240dc164f71239ec373d5396da65eedf810",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "BR2.4",
+      "finding": "Quy ước đặt tên `Tra cứu Accuity(n).pdf` khi nhiều bản ghi match=100 nên chốt cách đánh số n ở Code Generation.",
+      "required_action": "Chốt quy ước đặt tên file ở Code Generation.",
+      "status": "New"
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "AccuityLookupResult.matchScore",
+      "finding": "Nguồn/cách đọc matchScore từ web mock (text/thuộc tính) để mức logic; làm rõ khi hiện thực adapter mock.",
+      "required_action": "Làm rõ ở Code Generation/test fixtures.",
+      "status": "New"
+    }
+  ],
+  "derived_findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "BR2.4",
+      "finding": "Quy ước đặt tên `Tra cứu Accuity(n).pdf` khi nhiều bản ghi match=100 nên chốt cách đánh số n ở Code Generation.",
+      "required_action": "Chốt quy ước đặt tên file ở Code Generation.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "AccuityLookupResult.matchScore",
+      "finding": "Nguồn/cách đọc matchScore từ web mock (text/thuộc tính) để mức logic; làm rõ khi hiện thực adapter mock.",
+      "required_action": "Làm rõ ở Code Generation/test fixtures.",
+      "status": "New",
+      "introduced_in_review": true
+    }
+  ],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nThiết kế chức năng U2 DataEntryAccuity nhất quán với hợp đồng pipeline. entities.md\nmô tả đúng AccuityQuery (entityType suy từ LOAIKHACHHANG, searchName từ TENKHACHHANG,\nSingle), AccuityLookupResult (resultPdfPath, matchScore 0..100, profilePdfPaths khi\nmatch=100) và phần StrRecord U2 chỉ ghi BOT_ACCUITY/BOT_GHICHU — tôn trọng quy ước\nsở hữu cột ở contract-summary.md. rules.md có BR2.1–BR2.7 rõ ràng, phủ: bỏ qua record\nđã dừng (cô lập lỗi FR12), chọn Entity Type theo loại KH, đăng nhập + export\n`Tra cứu Accuity.pdf`, in thêm hồ sơ khi Match Score=100, xử lý lỗi ghi StrRecord +\ndừng, không hardcode credentials (NFR4). functional-spec.md có workflow 10 bước, state\nmachine StrRecord phạm vi U2, ER diagram dẫn xuất, và scenarios happy/unhappy phủ cả\nKHCN/KHDN, match-100, lỗi đăng nhập, và record đã dừng. traceability.json phủ AC2.2.1\n(BR2.2, BR2.3) và AC2.2.2 (BR2.4), reverse giải thích các BR hành vi/ràng buộc. Web\nAccuity được trừu tượng hóa sau adapter (NFR6) để mock trong test. Các điểm dưới là\ngợi ý cho Code Generation.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n| Low | BR2.4 | Quy ước đặt tên `Tra cứu Accuity(n).pdf` khi nhiều bản ghi match=100 nên chốt cách đánh số n ở Code Generation. | Chốt quy ước đặt tên file ở Code Generation. |\n| Low | AccuityLookupResult.matchScore | Nguồn/cách đọc matchScore từ web mock (text/thuộc tính) để mức logic; làm rõ khi hiện thực adapter mock. | Làm rõ ở Code Generation/test fixtures. |\n",
+  "recorded_at": "2026-10-09T09:15:05Z"
+}

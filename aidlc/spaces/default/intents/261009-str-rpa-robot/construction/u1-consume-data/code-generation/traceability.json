@@ -1,0 +1,15 @@
+{
+  "stage": "code-generation",
+  "unit": "u1-consume-data",
+  "upstream_ids": ["US1.1", "US1.2", "US1.3", "US1.4", "US1.5", "US2.1", "US5.1", "US5.2"],
+  "coverage": [
+    { "id": "US1.1", "status": "OK", "target": "robot/u1_consume/kafka_consumer.py, robot/u1_consume/idempotency.py" },
+    { "id": "US1.2", "status": "OK", "target": "robot/u1_consume/source_folder.py" },
+    { "id": "US1.3", "status": "OK", "target": "robot/u1_consume/source_folder.py, robot/u1_consume/excel_reader.py" },
+    { "id": "US1.4", "status": "OK", "target": "robot/u1_consume/ecm_client.py" },
+    { "id": "US1.5", "status": "OK", "target": "robot/u1_consume/classifier.py" },
+    { "id": "US2.1", "status": "OK", "target": "robot/u1_consume/cashflow.py" },
+    { "id": "US5.1", "status": "OK", "target": "robot/config.py" },
+    { "id": "US5.2", "status": "OK", "target": "robot/logging_setup.py" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "stage": "functional-design",
+  "unit": "u2-data-entry-accuity",
+  "upstream_ids": ["AC2.2.1", "AC2.2.2"],
+  "coverage": [
+    { "id": "AC2.2.1", "status": "OK", "target": "BR2.2" },
+    { "id": "AC2.2.1", "status": "OK", "target": "BR2.3" },
+    { "id": "AC2.2.2", "status": "OK", "target": "BR2.4" }
+  ],
+  "reverse": [
+    { "id": "BR2.1", "status": "N/A", "target": "quy tắc cô lập lỗi pipeline (FR12), không gắn AC tra cứu" },
+    { "id": "BR2.5", "status": "N/A", "target": "quy tắc xử lý lỗi tra cứu (FR6.4), hành vi lỗi" },
+    { "id": "BR2.6", "status": "N/A", "target": "ghi kết quả BOT_ACCUITY, hệ quả của AC2.2.1" },
+    { "id": "BR2.7", "status": "N/A", "target": "ràng buộc bảo mật chung (NFR4/US5.1)" }
+  ]
+}

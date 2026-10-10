@@ -1,0 +1,15 @@
+{
+  "stage": "nfr-design",
+  "unit": "u4-data-entry-amld",
+  "upstream_ids": ["PERF-U4-1", "SEC-U4-1", "REL-U4-1", "REL-U4-2", "REL-U4-3", "REL-U4-4", "OBS-U4-1", "SCAL-U4-1"],
+  "coverage": [
+    { "id": "PERF-U4-1", "status": "OK", "target": "performance-design.md" },
+    { "id": "SEC-U4-1", "status": "OK", "target": "security-design.md" },
+    { "id": "REL-U4-1", "status": "OK", "target": "RetryPolicy" },
+    { "id": "REL-U4-2", "status": "OK", "target": "AmldLoginStep" },
+    { "id": "REL-U4-3", "status": "OK", "target": "TickValidator" },
+    { "id": "REL-U4-4", "status": "OK", "target": "AttachmentUploader" },
+    { "id": "OBS-U4-1", "status": "OK", "target": "observability-design.md" },
+    { "id": "SCAL-U4-1", "status": "OK", "target": "scalability-design.md" }
+  ]
+}

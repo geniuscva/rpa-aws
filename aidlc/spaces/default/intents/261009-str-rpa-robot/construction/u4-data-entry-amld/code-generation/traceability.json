@@ -1,0 +1,8 @@
+{
+  "stage": "code-generation",
+  "unit": "u4-data-entry-amld",
+  "upstream_ids": ["US2.4"],
+  "coverage": [
+    { "id": "US2.4", "status": "OK", "target": "robot/u4_amld/amld_portal_adapter.py, robot/u4_amld/retry_policy.py, robot/u4_amld/tick_validator.py, robot/u4_amld/attachment_uploader.py, robot/u4_amld/amld_stage.py" }
+  ]
+}

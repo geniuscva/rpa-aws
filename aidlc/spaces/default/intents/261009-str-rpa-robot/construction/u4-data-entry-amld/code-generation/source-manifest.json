@@ -1,0 +1,18 @@
+{
+  "stage": "code-generation",
+  "unit": "u4-data-entry-amld",
+  "version": 1,
+  "writes": [
+    { "path": "robot/u4_amld/__init__.py" },
+    { "path": "robot/u4_amld/retry_policy.py" },
+    { "path": "robot/u4_amld/tick_validator.py" },
+    { "path": "robot/u4_amld/attachment_uploader.py" },
+    { "path": "robot/u4_amld/amld_portal_adapter.py" },
+    { "path": "robot/u4_amld/amld_stage.py" },
+    { "path": "tests/u4_amld/__init__.py" },
+    { "path": "tests/u4_amld/test_retry_policy.py" },
+    { "path": "tests/u4_amld/test_tick_validator.py" },
+    { "path": "tests/u4_amld/test_attachment_uploader.py" },
+    { "path": "tests/u4_amld/test_amld_stage.py" }
+  ]
+}

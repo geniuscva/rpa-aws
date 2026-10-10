@@ -1,0 +1,8 @@
+{
+  "stage": "code-generation",
+  "unit": "u5-tonghop-guimail",
+  "upstream_ids": ["US2.5"],
+  "coverage": [
+    { "id": "US2.5", "status": "OK", "target": "robot/u5_tonghop/result_builder.py, robot/u5_tonghop/status_report.py, robot/u5_tonghop/email_sender.py, robot/u5_tonghop/tonghop_stage.py" }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "stage": "code-generation",
+  "unit": "u4-data-entry-amld",
+  "workflow": null,
+  "attempt": "b1e6b21a39622166",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:4852c5b65ce48c34553a275a02bb1051",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:5fd8d461cbed2f6426793590b3facc1775628fb4d14c326b46db675a2fd7bfdb",
+  "source_fingerprint": "c68b8f6dc9b24a0ac5638c9e98c1bd0a74ed9e1583f401a1f9ff33a6b07a7592",
+  "unit_source_fingerprint": "sha256:6f18e07dc7d11869f3e760f9a4bc508880ce61c429743398a9d4672b9275f529",
+  "findings": [],
+  "derived_findings": [],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nRà soát advisory code U4 DataEntryAMLD so với functional-design (BR4.1-4.11), NFR\ndesign, hợp đồng StrRecord và các ràng buộc project.md đã affirmed. Cấu phần hiện\nthực đúng hợp đồng pipeline `process(record, context) -> record`: bỏ qua record đã\ndừng (BR4.1); kiểm tài liệu bắt buộc trước khi nộp, thiếu → KHÔNG nộp + dừng record\n(BR4.7, ràng buộc project.md); đăng nhập reload ≤ 3 lần (BR4.9); nhập I→II→IV→V→VI\nvà **KHÔNG điền Phần III** (BR4.2 — mock/Playwright đều raise nếu bị gọi với \"III\",\ntest khẳng định `sections_filled` không chứa III); Phần II rẽ nhánh KHCN/KHDN (BR4.3);\nmỗi bước bọc RetryPolicy ≤ 3 lần (BR4.8); tick Phần IV/V qua TickValidator — ngoài\ntập → dừng, KHÔNG đi tiếp (BR4.6), và quy tắc Phần V 6/7/8 → +4,5 (BR4.5); upload\nPhần VI đúng thứ tự (BR4.4); ghi BOT_ALMD + BOT_TINHTRANGTRASOAT (BR4.10), lỗi →\nprocessing_stopped + BOT_GHICHU để U5 email FAIL. Credentials/endpoint từ\ndata/config.yaml, không hardcode, không log secret (BR4.11/NFR4). 23 test phủ đủ\ncác kịch bản yêu cầu; toàn bộ suite 72 passed. Sẵn sàng cho Build and Test.\n\n### Prior findings\n\n| ID | Severity | Location | Finding | Status |\n|---|---|---|---|---|\n| — | — | — | Không có (iteration 1) | — |\n\n### New findings\n\n| ID | Severity | Location | Finding | Required action | Status |\n|---|---|---|---|---|---|\n| N-01 | Info | amld_stage.py | Nguồn giá trị tick Phần IV/V hiện trả rỗng mặc định; sẽ nối với dữ liệu thật (record/portal) khi tích hợp web thật — hợp lý với phạm vi U4 (logic kiểm/áp quy tắc đã đầy đủ và có test qua inject). | Không cần hành động trong U4. | New |\n| N-02 | Info | amld_portal_adapter.py | Cả mock lẫn Playwright chặn cứng Phần III ở tầng cổng — phòng vệ tốt cho ràng buộc BR4.2. | Không cần hành động. | New |\n\nKhông có finding mức Critical/High/Medium. Code sẵn sàng cho cổng duyệt.\n",
+  "recorded_at": "2026-10-09T13:09:10Z"
+}

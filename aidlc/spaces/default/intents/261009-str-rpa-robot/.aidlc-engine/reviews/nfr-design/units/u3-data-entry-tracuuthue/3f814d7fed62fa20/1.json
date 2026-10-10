@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "stage": "nfr-design",
+  "unit": "u3-data-entry-tracuuthue",
+  "workflow": null,
+  "attempt": "3f814d7fed62fa20",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:45a947bc8262557ecc3dea561b2e8e6e",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:ccb6ff3d0f73bba8e5379df16d5ef0e746a6e3afcefe803e806d543bf2bccee1",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [],
+  "derived_findings": [],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nNFR Design U3 ánh xạ đầy đủ: TaxAuthorityAdapter ẩn sau interface (mock trong\ntest), CaptchaSolver ddddocr giới hạn số lần, lỗi cô lập ghi StrRecord, config\ntừ config.yaml. U3 độc lập U2. traceability phủ đủ.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n",
+  "recorded_at": "2026-10-09T11:09:12Z"
+}

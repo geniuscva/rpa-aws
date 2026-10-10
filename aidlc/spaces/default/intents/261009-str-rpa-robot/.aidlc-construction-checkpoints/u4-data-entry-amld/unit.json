@@ -1,0 +1,22 @@
+{
+  "version": 4,
+  "id": "1b85f1de-a3c6-4d69-8027-b8d758cb949a",
+  "kind": "unit",
+  "unit": "u4-data-entry-amld",
+  "fingerprint": "sha256:e4333954aaa08adf872fcb53524b80a9e43120626335f3123b4a0f79c63c7eb7",
+  "command_sha256": "d7a8db1164e0897f06986dfbb568709a4744de706231d1c82d81294c5132001d",
+  "command_label": ".venv/bin/pytest",
+  "started_at": "2026-10-09T13:10:42.553Z",
+  "finished_at": "2026-10-09T13:10:42.826Z",
+  "exit_code": 0,
+  "signal": null,
+  "error": null,
+  "stdout_bytes": 99,
+  "stderr_bytes": 0,
+  "stdout_sha256": "e0ed502c7a4fd109705b6df6eba0474b970c04b4b7f1610f5629b98225a1e4a1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": "........................................................................ [100%]\n72 passed in 0.13s\n",
+  "stderr_tail": "",
+  "evidence_unchanged": true,
+  "verified": true
+}

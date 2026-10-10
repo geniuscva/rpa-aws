@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "askId": "17d00dfe43a3b5840987e50bedd4711f",
+  "intentId": "01a11ecf-7bb8-798f-a691-4b1b6b9d1f60",
+  "targets": [
+    {
+      "unit": "u5-tonghop-guimail",
+      "targetId": "unit:u5-tonghop-guimail",
+      "fingerprint": "sha256:v3:2836da2bffc6b4ad2a83d61addd5fbc66e5d28e777966dc828df9ddbea6fc52e"
+    }
+  ],
+  "question": "Approve the code plan for u5-tonghop-guimail?",
+  "choices": [
+    "Approve Plan",
+    "Request Changes",
+    "I'll edit the files"
+  ],
+  "mode": "ask",
+  "bound": false,
+  "issuedAt": "2026-10-09T13:14:17.075Z",
+  "repliesFrom": {
+    "shard": "aidlc/spaces/default/intents/261009-str-rpa-robot/audit/hais-macbook-local-fad31d3a98c0.md",
+    "offset": 637536
+  },
+  "results": [
+    {
+      "unit": "u5-tonghop-guimail",
+      "choice": "approve",
+      "fingerprint": "sha256:v3:2836da2bffc6b4ad2a83d61addd5fbc66e5d28e777966dc828df9ddbea6fc52e",
+      "read": true,
+      "turns": 166
+    }
+  ]
+}

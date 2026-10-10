@@ -1,0 +1,8 @@
+{
+  "stage": "code-generation",
+  "unit": "u3-data-entry-tracuuthue",
+  "upstream_ids": ["US2.3"],
+  "coverage": [
+    { "id": "US2.3", "status": "OK", "target": "robot/u3_tracuuthue/tax_authority_adapter.py, robot/u3_tracuuthue/captcha_solver.py, robot/u3_tracuuthue/tax_stage.py" }
+  ]
+}

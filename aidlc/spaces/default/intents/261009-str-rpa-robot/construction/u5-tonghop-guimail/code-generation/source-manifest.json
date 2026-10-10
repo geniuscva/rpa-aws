@@ -1,0 +1,16 @@
+{
+  "stage": "code-generation",
+  "unit": "u5-tonghop-guimail",
+  "version": 1,
+  "writes": [
+    { "path": "robot/u5_tonghop/__init__.py" },
+    { "path": "robot/u5_tonghop/result_builder.py" },
+    { "path": "robot/u5_tonghop/status_report.py" },
+    { "path": "robot/u5_tonghop/email_sender.py" },
+    { "path": "robot/u5_tonghop/tonghop_stage.py" },
+    { "path": "tests/u5_tonghop/__init__.py" },
+    { "path": "tests/u5_tonghop/test_result_builder.py" },
+    { "path": "tests/u5_tonghop/test_status_report.py" },
+    { "path": "tests/u5_tonghop/test_tonghop_stage.py" }
+  ]
+}

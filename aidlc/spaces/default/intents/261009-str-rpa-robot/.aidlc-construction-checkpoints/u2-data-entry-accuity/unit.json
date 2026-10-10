@@ -1,0 +1,22 @@
+{
+  "version": 4,
+  "id": "862bbaef-4d32-4e13-8e75-641c389c8a79",
+  "kind": "unit",
+  "unit": "u2-data-entry-accuity",
+  "fingerprint": "sha256:77b5c285e26c72dad7bf5276523233a83bc110905f1206195020f482823c3afc",
+  "command_sha256": "d7a8db1164e0897f06986dfbb568709a4744de706231d1c82d81294c5132001d",
+  "command_label": ".venv/bin/pytest",
+  "started_at": "2026-10-09T12:05:48.240Z",
+  "finished_at": "2026-10-09T12:05:48.503Z",
+  "exit_code": 0,
+  "signal": null,
+  "error": null,
+  "stdout_bytes": 99,
+  "stderr_bytes": 0,
+  "stdout_sha256": "74c66f4981932e270585935cb3b6a10fd2ea6142b2fd7c90194b67bf53f417b7",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": ".....................................                                    [100%]\n37 passed in 0.13s\n",
+  "stderr_tail": "",
+  "evidence_unchanged": true,
+  "verified": true
+}

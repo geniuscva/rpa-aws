@@ -1,0 +1,22 @@
+{
+  "version": 4,
+  "id": "d14c396b-ff35-42e1-bd15-1dfeb72e05ae",
+  "kind": "unit",
+  "unit": "u5-tonghop-guimail",
+  "fingerprint": "sha256:ace029c5a35c63ede0542f20d180d89f602aee375eaed762096085e9c526166c",
+  "command_sha256": "d7a8db1164e0897f06986dfbb568709a4744de706231d1c82d81294c5132001d",
+  "command_label": ".venv/bin/pytest",
+  "started_at": "2026-10-09T14:06:28.260Z",
+  "finished_at": "2026-10-09T14:06:28.629Z",
+  "exit_code": 0,
+  "signal": null,
+  "error": null,
+  "stdout_bytes": 179,
+  "stderr_bytes": 0,
+  "stdout_sha256": "6c2c68e1057383ecd408cef09e354660ecdd8db16828f18b9e05f9819f49c24b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": "........................................................................ [ 87%]\n..........                                                               [100%]\n82 passed in 0.16s\n",
+  "stderr_tail": "",
+  "evidence_unchanged": true,
+  "verified": true
+}

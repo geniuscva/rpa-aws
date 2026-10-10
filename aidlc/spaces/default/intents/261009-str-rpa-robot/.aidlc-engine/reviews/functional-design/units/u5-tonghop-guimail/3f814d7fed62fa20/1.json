@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "stage": "functional-design",
+  "unit": "u5-tonghop-guimail",
+  "workflow": null,
+  "attempt": "3f814d7fed62fa20",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:1e481b10bbad0759d5edee8bb4062c43",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:8e1cd9a03304bf525a90fd08ff88bfec8d08018ee1317ce8d0c3998d5724815e",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "BR5.3 / StatusEmail.cc",
+      "finding": "FR13.1 chốt Cc = nguyendinhhai1996@hotmail.com, trong khi rule đội affirmed liệt kê thêm các Cc MB Bank; cần chốt danh sách Cc cuối cùng (và nguồn cấu hình) ở Code Generation.",
+      "required_action": "Chốt danh sách Cc và nguồn cấu hình mail ở Code Generation U5.",
+      "status": "New"
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "BR5.1 / ProcessingResult.status",
+      "finding": "Tiêu chí phân loại SUCCESS/FAIL từ tổ hợp các cột BOT_* nên liệt kê cụ thể (cột nào, giá trị nào là lỗi) khi hiện thực.",
+      "required_action": "Chốt bảng ánh xạ BOT_* → status ở Code Generation U5.",
+      "status": "New"
+    },
+    {
+      "id": "R-03",
+      "severity": "Low",
+      "location": "BR5.3 / template mục 5.4",
+      "finding": "Template tiêu đề/nội dung email (mục 5.4 tài liệu) chưa trích dẫn chi tiết; lấy nguyên văn ở Code Generation.",
+      "required_action": "Trích template email mục 5.4 ở Code Generation U5.",
+      "status": "New"
+    }
+  ],
+  "derived_findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "BR5.3 / StatusEmail.cc",
+      "finding": "FR13.1 chốt Cc = nguyendinhhai1996@hotmail.com, trong khi rule đội affirmed liệt kê thêm các Cc MB Bank; cần chốt danh sách Cc cuối cùng (và nguồn cấu hình) ở Code Generation.",
+      "required_action": "Chốt danh sách Cc và nguồn cấu hình mail ở Code Generation U5.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "BR5.1 / ProcessingResult.status",
+      "finding": "Tiêu chí phân loại SUCCESS/FAIL từ tổ hợp các cột BOT_* nên liệt kê cụ thể (cột nào, giá trị nào là lỗi) khi hiện thực.",
+      "required_action": "Chốt bảng ánh xạ BOT_* → status ở Code Generation U5.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-03",
+      "severity": "Low",
+      "location": "BR5.3 / template mục 5.4",
+      "finding": "Template tiêu đề/nội dung email (mục 5.4 tài liệu) chưa trích dẫn chi tiết; lấy nguyên văn ở Code Generation.",
+      "required_action": "Trích template email mục 5.4 ở Code Generation U5.",
+      "status": "New",
+      "introduced_in_review": true
+    }
+  ],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nThiết kế chức năng U5 TongHopVaGuiMail nhất quán với hợp đồng pipeline và DAG: U5\nlà chặng cuối, phụ thuộc U4, chạy một lần cho cả lô và đọc toàn bộ StrRecord của\nmọi CIF — đúng quy ước \"U5 đọc toàn bộ\" trong contract-summary.md. entities.md mô\nhình hoá đúng ProcessingResult (STT, STR_CIF, status, errorCode, errorDetail dẫn\nxuất từ StrRecord), BatchStatusReport (file excel đính kèm) và StatusEmail (From/\nTo/Cc/đính kèm theo FR13.1). rules.md có BR5.1–BR5.7 phủ: tổng hợp mọi CIF gồm KH\nlỗi, bảng trạng thái đúng cột, gửi email lô kèm đính kèm, KH lỗi sau 3 retry nằm\ntrong email lô, cô lập lỗi theo KH, lưu vết xử lý, không hardcode credentials\nmail. functional-spec.md có workflow 7 bước, state machine phủ nhánh gửi thành\ncông/lỗi, ER diagram dẫn xuất, scenarios đầy đủ (toàn SUCCESS, có KH lỗi cô lập,\nthất bại sau retry, record dừng luồng, lỗi gửi email). traceability.json phủ 6 AC\ncủa US4.2/US4.3/US5.2/US6.1/US6.2 với target BRx.y tồn tại trong rules.md. Khớp\nđúng việc không có cơ chế robot thứ hai (FR11.2). Các điểm dưới là gợi ý cho các\nbước sau, không chặn.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n| Low | BR5.3 / StatusEmail.cc | FR13.1 chốt Cc = nguyendinhhai1996@hotmail.com, trong khi rule đội affirmed liệt kê thêm các Cc MB Bank; cần chốt danh sách Cc cuối cùng (và nguồn cấu hình) ở Code Generation. | Chốt danh sách Cc và nguồn cấu hình mail ở Code Generation U5. |\n| Low | BR5.1 / ProcessingResult.status | Tiêu chí phân loại SUCCESS/FAIL từ tổ hợp các cột BOT_* nên liệt kê cụ thể (cột nào, giá trị nào là lỗi) khi hiện thực. | Chốt bảng ánh xạ BOT_* → status ở Code Generation U5. |\n| Low | BR5.3 / template mục 5.4 | Template tiêu đề/nội dung email (mục 5.4 tài liệu) chưa trích dẫn chi tiết; lấy nguyên văn ở Code Generation. | Trích template email mục 5.4 ở Code Generation U5. |\n",
+  "recorded_at": "2026-10-09T09:49:46Z"
+}

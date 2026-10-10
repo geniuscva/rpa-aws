@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "stage": "code-generation",
+  "unit": "u3-data-entry-tracuuthue",
+  "workflow": null,
+  "attempt": "b1e6b21a39622166",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:8e32918b141d06d569028c404aa3b3ed",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:fd1209abd62708b567e3649c22e466735273a258b7bb355d5358d0fde2d4dbdc",
+  "source_fingerprint": "7523eb9ed41d243b9859e557cf80cc0669e305d3207dc4a1ee17045f3ce91833",
+  "unit_source_fingerprint": "sha256:4bcdf8b9306fda80d2ad19e8d579e64d7dc8b999fe14642332a43bbd59818a2a",
+  "findings": [],
+  "derived_findings": [],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nRà soát advisory code U3 DataEntryTraCuuThue so với functional-design (BR3.1-3.7),\nNFR design và hợp đồng StrRecord. Cấu phần hiện thực đúng hợp đồng pipeline\n`process(record, context) -> record`: bỏ qua record đã dừng (BR3.1); chỉ tra cứu\nkhi KHDN, KHCN → `BOT_TRACUUTHE=SKIPPED` (BR3.2); nhập MST + giải captcha ddddocr\ncó giới hạn số lần thử (BR3.3); có kết quả → in `Tra cứu tình trạng người nộp\nthuế.pdf` + `OK`, không có → `SKIPPED` không coi là lỗi (BR3.4); lỗi/captcha fail\n→ `ERROR` + `stop()` (processing_stopped + BOT_GHICHU, BR3.6). Phụ thuộc web Cục\nThuế được cô lập sau Protocol `TaxAuthorityPort` với mock + hiện thực Playwright\n(NFR6); captcha ddddocr import trễ, mock được trong test. URL/cấu hình đọc từ\n`data/config.yaml`, không hardcode, không log secret (BR3.7/NFR4). 12 test phủ\nđủ các kịch bản yêu cầu; toàn bộ suite 49 passed. Sẵn sàng cho Build and Test.\n\n### Prior findings\n\n| ID | Severity | Location | Finding | Status |\n|---|---|---|---|---|\n| — | — | — | Không có (iteration 1) | — |\n\n### New findings\n\n| ID | Severity | Location | Finding | Required action | Status |\n|---|---|---|---|---|---|\n| N-01 | Info | tax_authority_adapter.py | `PlaywrightTaxAuthorityPort` kỳ vọng mục `tax_authority` trong config khi chạy thật; mục này sẽ thêm vào config khi tích hợp web thật — hợp lý với phạm vi U3. | Không cần hành động trong U3. | New |\n| N-02 | Info | tax_stage.py | KHCN và \"không có kết quả\" đều ánh xạ về `SKIPPED` theo functional-spec; nhất quán với đặc tả. | Không cần hành động. | New |\n\nKhông có finding mức Critical/High/Medium. Code sẵn sàng cho cổng duyệt.\n",
+  "recorded_at": "2026-10-09T12:45:53Z"
+}

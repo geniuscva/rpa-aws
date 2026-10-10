@@ -1,0 +1,22 @@
+{
+  "version": 4,
+  "id": "2ca8ebe8-abc5-4fa9-a598-0e0de0149822",
+  "kind": "unit",
+  "unit": "u1-consume-data",
+  "fingerprint": "sha256:f51654acbca5707e4d41d81a50c336b5ff4eca2302701601c3bf21a585c71bc2",
+  "command_sha256": "d7a8db1164e0897f06986dfbb568709a4744de706231d1c82d81294c5132001d",
+  "command_label": ".venv/bin/pytest",
+  "started_at": "2026-10-09T11:58:31.693Z",
+  "finished_at": "2026-10-09T11:58:31.944Z",
+  "exit_code": 0,
+  "signal": null,
+  "error": null,
+  "stdout_bytes": 99,
+  "stderr_bytes": 0,
+  "stdout_sha256": "3e62137b8331e5093c598c5984f07ba7ebd335dbd23ed78b8568e911f7ffd001",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": ".....................................                                    [100%]\n37 passed in 0.11s\n",
+  "stderr_tail": "",
+  "evidence_unchanged": true,
+  "verified": true
+}

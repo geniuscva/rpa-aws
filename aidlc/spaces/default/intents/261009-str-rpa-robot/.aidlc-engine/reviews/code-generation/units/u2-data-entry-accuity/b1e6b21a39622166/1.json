@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "stage": "code-generation",
+  "unit": "u2-data-entry-accuity",
+  "workflow": null,
+  "attempt": "b1e6b21a39622166",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:e900ead3ee2e36788cadab420b4d916d",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:0b16d021e813a84240c69e32cb510ca95e4e540948d060acacda64662a0acd7d",
+  "source_fingerprint": "3a6a462489a81ad566e0b3dc620ace19dd3c63f22b65bec05ccc96203bc7b63e",
+  "unit_source_fingerprint": "sha256:46ec6cc875e20eed872dc0fa51465fb72fce476716f811966adaf014884b6abb",
+  "findings": [],
+  "derived_findings": [],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nCode U2 DataEntryAccuity hiện thực đúng hợp đồng pipeline, cô lập phụ thuộc web\nAccuity sau Protocol `AccuityPort` để test mock (NFR6), tuân thủ quy tắc dừng\nrecord khi lỗi (BR). Map loại KH đúng (KHCN→Individual, KHDN→Organization), export\nPDF thứ hai khi Match Score=100, ghi BOT_ACCUITY, lỗi → processing_stopped +\nBOT_GHICHU. Credentials đọc từ data/config.yaml, không hardcode. 12 test phủ happy\npath KHCN/KHDN, match=100, lỗi login/lookup và record đã dừng. Mã không đổi so với\nbản đã review READY trước đó; đây là review lại sau khi Code Generation bị reset\nbởi thao tác sửa checkpoint (reopen Infrastructure Design cho U2). Sẵn sàng.\n\n### Prior findings\n\n| ID | Severity | Location | Finding | Status |\n|---|---|---|---|---|\n| — | — | — | Không có finding tồn đọng | — |\n\n### New findings\n\n| ID | Severity | Location | Finding | Required action | Status |\n|---|---|---|---|---|---|\n| N-01 | Info | robot/u2_accuity/ | Mã giữ nguyên bản đã review READY trước; test vẫn 12 passed. | Không cần hành động. | New |\n\nKhông có finding mức high/medium. Code sẵn sàng.\n",
+  "recorded_at": "2026-10-09T12:04:19Z"
+}

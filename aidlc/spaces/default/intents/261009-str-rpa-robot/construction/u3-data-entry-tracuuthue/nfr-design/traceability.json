@@ -1,0 +1,12 @@
+{
+  "stage": "nfr-design",
+  "unit": "u3-data-entry-tracuuthue",
+  "upstream_ids": ["PERF-U3-1", "SEC-U3-1", "REL-U3-1", "OBS-U3-1", "SCAL-U3-1"],
+  "coverage": [
+    { "id": "PERF-U3-1", "status": "OK", "target": "performance-design.md" },
+    { "id": "SEC-U3-1", "status": "OK", "target": "security-design.md" },
+    { "id": "REL-U3-1", "status": "OK", "target": "CaptchaSolver" },
+    { "id": "OBS-U3-1", "status": "OK", "target": "observability-design.md" },
+    { "id": "SCAL-U3-1", "status": "OK", "target": "scalability-design.md" }
+  ]
+}

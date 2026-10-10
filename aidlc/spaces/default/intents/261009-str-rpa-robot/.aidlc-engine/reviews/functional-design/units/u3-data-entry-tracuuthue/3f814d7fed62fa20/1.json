@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "stage": "functional-design",
+  "unit": "u3-data-entry-tracuuthue",
+  "workflow": null,
+  "attempt": "3f814d7fed62fa20",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:bb06cc16e7eccbca06ce094ab51c9b1e",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:ab0e61108f9300d2e5163fc4aeac0a7e5d176853d21f80167beb271d321d5d35",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "BR3.3 / Captcha.attempt",
+      "finding": "Giới hạn số lần giải captcha chưa định lượng; chốt số lần cụ thể ở NFR Design/Code Generation.",
+      "required_action": "Chốt giới hạn số lần giải captcha.",
+      "status": "New"
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "TaxLookupResult.hasResult",
+      "finding": "Tiêu chí \"có/không có kết quả\" từ web thật cần làm rõ dấu hiệu nhận biết khi hiện thực adapter (và fixture mock).",
+      "required_action": "Làm rõ ở Code Generation/test fixtures.",
+      "status": "New"
+    }
+  ],
+  "derived_findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "BR3.3 / Captcha.attempt",
+      "finding": "Giới hạn số lần giải captcha chưa định lượng; chốt số lần cụ thể ở NFR Design/Code Generation.",
+      "required_action": "Chốt giới hạn số lần giải captcha.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "TaxLookupResult.hasResult",
+      "finding": "Tiêu chí \"có/không có kết quả\" từ web thật cần làm rõ dấu hiệu nhận biết khi hiện thực adapter (và fixture mock).",
+      "required_action": "Làm rõ ở Code Generation/test fixtures.",
+      "status": "New",
+      "introduced_in_review": true
+    }
+  ],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nThiết kế chức năng U3 DataEntryTraCuuThue nhất quán với hợp đồng pipeline và DAG\n(U3 phụ thuộc U1, song song U2). entities.md mô tả đúng TaxLookupQuery (applicable\nchỉ KHDN, taxCode từ MASOTHUE), Captcha (giải ddddocr, giới hạn số lần), TaxLookupResult\n(hasResult, status OK/SKIPPED/ERROR), và StrRecord chỉ ghi BOT_TRACUUTHE/BOT_GHICHU —\ntôn trọng quy ước sở hữu cột. rules.md có BR3.1–BR3.7 phủ: bỏ qua record đã dừng,\nrẽ nhánh chỉ-KHDN (KHCN SKIPPED), nhập MST + giải captcha ddddocr, có/không kết quả,\nxử lý lỗi + dừng record, không hardcode credentials. functional-spec.md có workflow\n11 bước, state machine phủ KHCN/KHDN/no-result/captcha-fail/stopped, ER diagram dẫn\nxuất, scenarios đầy đủ. traceability.json phủ AC2.3.1 (BR3.2, BR3.3) và AC2.3.2\n(BR3.4), reverse giải thích các BR hành vi. Captcha/web Cục Thuế trừu tượng hóa sau\nadapter để mock (NFR6). Các điểm dưới là gợi ý cho các bước sau.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n| Low | BR3.3 / Captcha.attempt | Giới hạn số lần giải captcha chưa định lượng; chốt số lần cụ thể ở NFR Design/Code Generation. | Chốt giới hạn số lần giải captcha. |\n| Low | TaxLookupResult.hasResult | Tiêu chí \"có/không có kết quả\" từ web thật cần làm rõ dấu hiệu nhận biết khi hiện thực adapter (và fixture mock). | Làm rõ ở Code Generation/test fixtures. |\n",
+  "recorded_at": "2026-10-09T09:28:33Z"
+}

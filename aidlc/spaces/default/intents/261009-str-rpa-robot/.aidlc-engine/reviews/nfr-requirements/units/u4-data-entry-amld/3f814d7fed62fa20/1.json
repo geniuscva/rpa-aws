@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "stage": "nfr-requirements",
+  "unit": "u4-data-entry-amld",
+  "workflow": null,
+  "attempt": "3f814d7fed62fa20",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:de84bfa8f4d092c7ec9663e296a310f9",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:454d3ba24d3bf8a676504081ac17d941e9453b71d5c105ed6b8bfcab0c8bfaa1",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "REL-U4-1/REL-U4-2",
+      "finding": "Hai ngưỡng retry (bước nhập vs reload đăng nhập) đều là 3; làm rõ chúng độc lập ở Code Generation.",
+      "required_action": "Code Generation U4.",
+      "status": "New"
+    }
+  ],
+  "derived_findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "REL-U4-1/REL-U4-2",
+      "finding": "Hai ngưỡng retry (bước nhập vs reload đăng nhập) đều là 3; làm rõ chúng độc lập ở Code Generation.",
+      "required_action": "Code Generation U4.",
+      "status": "New",
+      "introduced_in_review": true
+    }
+  ],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nNFR U4 phủ đầy đủ các đặc thù AMLD: retry ≤3 (REL-U4-1), reload đăng nhập ≤3\n(REL-U4-2), chặn tick ngoài tập (REL-U4-3), fail-closed khi thiếu attachment\n(REL-U4-4), credentials từ config.yaml không hardcode/không log. traceability\nphủ NFR2/3/4/5/7. U4 là điểm hội tụ U2+U3, nhất quán hợp đồng StrRecord.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n| Low | REL-U4-1/REL-U4-2 | Hai ngưỡng retry (bước nhập vs reload đăng nhập) đều là 3; làm rõ chúng độc lập ở Code Generation. | Code Generation U4. |\n",
+  "recorded_at": "2026-10-09T11:03:28Z"
+}

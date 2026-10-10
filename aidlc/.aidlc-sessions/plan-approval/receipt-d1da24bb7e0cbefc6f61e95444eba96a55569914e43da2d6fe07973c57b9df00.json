@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "targetId": "unit:u4-data-entry-amld",
+  "intentId": "01a11ecf-7bb8-798f-a691-4b1b6b9d1f60",
+  "runFloor": "STAGE_JUMPED:2026-10-09T11:52:10Z#1",
+  "fingerprint": "sha256:v3:3b7600556e60f42fe5b272b0a03ebe2b71efd600d3cef07ba0779d769796a224",
+  "questionsFile": "aidlc/spaces/default/intents/261009-str-rpa-robot/construction/u4-data-entry-amld/code-generation/code-generation-questions.md",
+  "promptSha256": "da29a520e927e3add63b0cec4647ca5b9e70c1b08d24d97335d5c254ca8af126",
+  "directiveEpoch": "sha256:b044db129f8c2f9e2dbafbfaf37c123b9b901ba0bf8cb773166237e7c28546c4",
+  "sourceFloor": "7523eb9ed41d243b9859e557cf80cc0669e305d3207dc4a1ee17045f3ce91833",
+  "markerRevision": 249,
+  "plannedSourceSha256": "7523eb9ed41d243b9859e557cf80cc0669e305d3207dc4a1ee17045f3ce91833",
+  "session": "sess_7a92bd95-78fa-4f47-8932-6307ec5514a7",
+  "challengeId": "45be04eb0025b0ef69a72eea3a19fc66",
+  "choice": "Approve Plan",
+  "questionsSha256": "95da605ac7dd35e5e9dfb165bb53653efd2ccef8b9a47bc05efdf45cc04985f0",
+  "certifiedSourceSha256": "7523eb9ed41d243b9859e557cf80cc0669e305d3207dc4a1ee17045f3ce91833",
+  "status": "generation"
+}

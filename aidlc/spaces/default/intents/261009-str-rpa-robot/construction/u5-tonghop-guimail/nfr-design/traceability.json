@@ -1,0 +1,14 @@
+{
+  "stage": "nfr-design",
+  "unit": "u5-tonghop-guimail",
+  "upstream_ids": ["PERF-U5-1", "SEC-U5-1", "REL-U5-1", "REL-U5-2", "REL-U5-3", "OBS-U5-1", "SCAL-U5-1"],
+  "coverage": [
+    { "id": "PERF-U5-1", "status": "OK", "target": "performance-design.md" },
+    { "id": "SEC-U5-1", "status": "OK", "target": "security-design.md" },
+    { "id": "REL-U5-1", "status": "OK", "target": "ErrorAggregator" },
+    { "id": "REL-U5-2", "status": "OK", "target": "EmailSender" },
+    { "id": "REL-U5-3", "status": "OK", "target": "StatusReportBuilder" },
+    { "id": "OBS-U5-1", "status": "OK", "target": "observability-design.md" },
+    { "id": "SCAL-U5-1", "status": "OK", "target": "scalability-design.md" }
+  ]
+}

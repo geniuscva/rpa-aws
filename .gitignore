@@ -1,0 +1,17 @@
+# Secrets & config (contains credentials) - never commit
+data/config.yaml
+
+# Output artifacts
+output/
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/

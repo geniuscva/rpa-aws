@@ -1,0 +1,31 @@
+{
+  "stage": "functional-design",
+  "unit": "u4-data-entry-amld",
+  "upstream_ids": [
+    "AC3.1.1",
+    "AC3.1.2",
+    "AC3.2.1",
+    "AC3.2.2",
+    "AC3.2.3",
+    "AC3.2.4",
+    "AC3.3.1",
+    "AC4.1.1",
+    "AC5.1.1"
+  ],
+  "coverage": [
+    { "id": "AC3.1.1", "status": "OK", "target": "BR4.11" },
+    { "id": "AC3.1.2", "status": "OK", "target": "BR4.9" },
+    { "id": "AC3.2.1", "status": "OK", "target": "BR4.2" },
+    { "id": "AC3.2.2", "status": "OK", "target": "BR4.3" },
+    { "id": "AC3.2.3", "status": "OK", "target": "BR4.5" },
+    { "id": "AC3.2.4", "status": "OK", "target": "BR4.4" },
+    { "id": "AC3.3.1", "status": "OK", "target": "BR4.6" },
+    { "id": "AC4.1.1", "status": "OK", "target": "BR4.8" },
+    { "id": "AC5.1.1", "status": "OK", "target": "BR4.11" }
+  ],
+  "reverse": [
+    { "id": "BR4.1", "status": "N/A", "target": "quy tắc cô lập lỗi pipeline (FR12)" },
+    { "id": "BR4.7", "status": "N/A", "target": "ràng buộc thiếu tài liệu bắt buộc → email FAIL (FR9.6/FR13, project rule affirmed)" },
+    { "id": "BR4.10", "status": "N/A", "target": "ghi kết quả BOT_ALMD/BOT_TINHTRANGTRASOAT, hệ quả của việc nhập (FR9/FR12.1)" }
+  ]
+}

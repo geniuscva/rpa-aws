@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "stage": "functional-design",
+  "unit": "u4-data-entry-amld",
+  "workflow": null,
+  "attempt": "3f814d7fed62fa20",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:7922e70735da0776a8d1a14b5ce2baa4",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:dfe3f80701d6a97204d98020b6a3f27ea3abfb962d5dc574cbec020277196f72",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "BR4.6 / SectionTickValue.inDefinedSet",
+      "finding": "Tập định nghĩa cụ thể cho từng mục tick Phần IV/V (danh sách giá trị hợp lệ) chưa liệt kê chi tiết; chốt ở Code Generation theo tài liệu Mẫu số 01.",
+      "required_action": "Chốt tập giá trị hợp lệ Phần IV/V ở Code Generation U4.",
+      "status": "New"
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "BR4.8 / RetryPolicy",
+      "finding": "Phạm vi \"một bước nhập\" được bọc retry (login, mỗi Phần, mỗi upload) nên liệt kê rõ các bước áp retry khi hiện thực.",
+      "required_action": "Làm rõ ranh giới bước retry ở NFR Design/Code Generation U4.",
+      "status": "New"
+    },
+    {
+      "id": "R-03",
+      "severity": "Low",
+      "location": "BR4.3 Phần II (KHDN)",
+      "finding": "Quy tắc chọn người đại diện \"GTTT ngày cấp mới nhất\" cần nguồn dữ liệu rõ ràng (sheet NDD_Thong_Tin_Dinh_Danh hoặc màn hình \"Xem\"); xác nhận ở Code Generation.",
+      "required_action": "Chốt nguồn chọn người đại diện ở Code Generation U4.",
+      "status": "New"
+    }
+  ],
+  "derived_findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "BR4.6 / SectionTickValue.inDefinedSet",
+      "finding": "Tập định nghĩa cụ thể cho từng mục tick Phần IV/V (danh sách giá trị hợp lệ) chưa liệt kê chi tiết; chốt ở Code Generation theo tài liệu Mẫu số 01.",
+      "required_action": "Chốt tập giá trị hợp lệ Phần IV/V ở Code Generation U4.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "BR4.8 / RetryPolicy",
+      "finding": "Phạm vi \"một bước nhập\" được bọc retry (login, mỗi Phần, mỗi upload) nên liệt kê rõ các bước áp retry khi hiện thực.",
+      "required_action": "Làm rõ ranh giới bước retry ở NFR Design/Code Generation U4.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-03",
+      "severity": "Low",
+      "location": "BR4.3 Phần II (KHDN)",
+      "finding": "Quy tắc chọn người đại diện \"GTTT ngày cấp mới nhất\" cần nguồn dữ liệu rõ ràng (sheet NDD_Thong_Tin_Dinh_Danh hoặc màn hình \"Xem\"); xác nhận ở Code Generation.",
+      "required_action": "Chốt nguồn chọn người đại diện ở Code Generation U4.",
+      "status": "New",
+      "introduced_in_review": true
+    }
+  ],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nThiết kế chức năng U4 DataEntryAMLD nhất quán với hợp đồng pipeline và DAG: U4 là\nđiểm hội tụ, nhận StrRecord sau khi U2 (Accuity) và U3 (Cục Thuế) đã bồi đắp, và\nchỉ ghi các cột BOT_ALMD, BOT_TINHTRANGTRASOAT, BOT_GHICHU — tôn trọng quy ước sở\nhữu cột trong contract-summary.md. entities.md mô hình hoá đúng AmldSession (đăng\nnhập, reload ≤ 3), StrReport (tiến độ Mẫu số 01 theo thứ tự I/II/IV/V/VI, bỏ III),\nSectionTickValue (kiểm tra tick Phần IV/V), AttachmentItem (Phần VI đúng thứ tự),\nRetryPolicy (≤ 3). rules.md có BR4.1–BR4.11 phủ đủ: bỏ qua record đã dừng, thứ tự\nnhập bỏ Phần III, rẽ nhánh KHCN/KHDN ở Phần II, upload Phần VI đúng thứ tự, quy\ntắc Phần V (6/7/8 → +4,5), chặn tick ngoài tập định nghĩa, thiếu tài liệu bắt buộc\n→ email FAIL, retry ≤ 3, đăng nhập treo reload ≤ 3, ghi kết quả, không hardcode\ncredentials. functional-spec.md có workflow 13 bước, state machine phủ các nhánh\nlogin-fail/missing-attachment/tick-ngoài-tập/retry-exhausted/stopped, ER diagram\ndẫn xuất, scenarios đầy đủ. traceability.json phủ 9 AC của US3.1/US3.2/US3.3/US4.1/\nUS5.1 với target BRx.y tồn tại trong rules.md; reverse giải thích các BR hành vi\n(BR4.1, BR4.7, BR4.10). Các project rule đã affirmed được phản ánh (cấm Phần III,\nchặn thiếu tài liệu bắt buộc, chặn tick ngoài tập, credentials từ data/config.yaml).\nCác điểm dưới là gợi ý cho các bước sau, không chặn.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n| Low | BR4.6 / SectionTickValue.inDefinedSet | Tập định nghĩa cụ thể cho từng mục tick Phần IV/V (danh sách giá trị hợp lệ) chưa liệt kê chi tiết; chốt ở Code Generation theo tài liệu Mẫu số 01. | Chốt tập giá trị hợp lệ Phần IV/V ở Code Generation U4. |\n| Low | BR4.8 / RetryPolicy | Phạm vi \"một bước nhập\" được bọc retry (login, mỗi Phần, mỗi upload) nên liệt kê rõ các bước áp retry khi hiện thực. | Làm rõ ranh giới bước retry ở NFR Design/Code Generation U4. |\n| Low | BR4.3 Phần II (KHDN) | Quy tắc chọn người đại diện \"GTTT ngày cấp mới nhất\" cần nguồn dữ liệu rõ ràng (sheet NDD_Thong_Tin_Dinh_Danh hoặc màn hình \"Xem\"); xác nhận ở Code Generation. | Chốt nguồn chọn người đại diện ở Code Generation U4. |\n",
+  "recorded_at": "2026-10-09T09:45:04Z"
+}

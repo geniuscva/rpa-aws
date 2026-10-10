@@ -1,0 +1,22 @@
+{
+  "version": 4,
+  "id": "b93809d3-8ef2-4283-bf6f-47c3e27cc0c4",
+  "kind": "unit",
+  "unit": "u3-data-entry-tracuuthue",
+  "fingerprint": "sha256:552f15e0e3974fb5bb5661f26b389bea60da8376750c9418c3e6ce7565c2807f",
+  "command_sha256": "d7a8db1164e0897f06986dfbb568709a4744de706231d1c82d81294c5132001d",
+  "command_label": ".venv/bin/pytest",
+  "started_at": "2026-10-09T12:47:34.484Z",
+  "finished_at": "2026-10-09T12:47:34.827Z",
+  "exit_code": 0,
+  "signal": null,
+  "error": null,
+  "stdout_bytes": 99,
+  "stderr_bytes": 0,
+  "stdout_sha256": "39715b105d36adcceed1778959e1a9408521a7e63c6ff24140e33e76aca5354f",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": ".................................................                        [100%]\n49 passed in 0.14s\n",
+  "stderr_tail": "",
+  "evidence_unchanged": true,
+  "verified": true
+}

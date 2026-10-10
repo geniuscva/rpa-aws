@@ -1,0 +1,14 @@
+{
+  "stage": "code-generation",
+  "unit": "u3-data-entry-tracuuthue",
+  "version": 1,
+  "writes": [
+    { "path": "robot/u3_tracuuthue/__init__.py" },
+    { "path": "robot/u3_tracuuthue/captcha_solver.py" },
+    { "path": "robot/u3_tracuuthue/tax_authority_adapter.py" },
+    { "path": "robot/u3_tracuuthue/tax_stage.py" },
+    { "path": "tests/u3_tracuuthue/__init__.py" },
+    { "path": "tests/u3_tracuuthue/test_captcha_solver.py" },
+    { "path": "tests/u3_tracuuthue/test_tax_stage.py" }
+  ]
+}

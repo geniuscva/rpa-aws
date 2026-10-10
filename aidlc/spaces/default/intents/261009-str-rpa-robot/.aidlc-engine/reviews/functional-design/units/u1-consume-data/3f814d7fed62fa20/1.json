@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "stage": "functional-design",
+  "unit": "u1-consume-data",
+  "workflow": null,
+  "attempt": "3f814d7fed62fa20",
+  "iteration": 1,
+  "reviewer": "aidlc-architecture-reviewer-agent",
+  "verdict": "READY",
+  "request_id": "review:9112c70b6925d8e434caa9597013f066",
+  "request_challenge": null,
+  "artifact_fingerprint": "sha256:9fe0dbc4e7fa516a2794974c552267f20027f32b9e89296efe843e64665c0d69",
+  "source_fingerprint": null,
+  "unit_source_fingerprint": null,
+  "findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "BR1.6 / entities",
+      "finding": "Kiểu dữ liệu số tiền để mức logic (decimal); cần chốt độ chính xác/định dạng khi tính sum ở Code Generation để tránh sai số.",
+      "required_action": "Chốt kiểu số ở Code Generation.",
+      "status": "New"
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "BR1.5",
+      "finding": "Thử lần lượt mọi business_code có thể tốn thời gian; cân nhắc ghi lại business_code trúng để lần sau ưu tiên (tối ưu, không bắt buộc).",
+      "required_action": "Cân nhắc ở Code Generation.",
+      "status": "New"
+    }
+  ],
+  "derived_findings": [
+    {
+      "id": "R-01",
+      "severity": "Low",
+      "location": "BR1.6 / entities",
+      "finding": "Kiểu dữ liệu số tiền để mức logic (decimal); cần chốt độ chính xác/định dạng khi tính sum ở Code Generation để tránh sai số.",
+      "required_action": "Chốt kiểu số ở Code Generation.",
+      "status": "New",
+      "introduced_in_review": true
+    },
+    {
+      "id": "R-02",
+      "severity": "Low",
+      "location": "BR1.5",
+      "finding": "Thử lần lượt mọi business_code có thể tốn thời gian; cân nhắc ghi lại business_code trúng để lần sau ưu tiên (tối ưu, không bắt buộc).",
+      "required_action": "Cân nhắc ở Code Generation.",
+      "status": "New",
+      "introduced_in_review": true
+    }
+  ],
+  "body": "## Review\n\n**Reviewer:** aidlc-architecture-reviewer-agent\n**Verdict:** READY\n**Iteration:** 1\n\nThiết kế chức năng U1 ConsumeData đầy đủ và nhất quán với hợp đồng. entities.md\nmô tả đúng các thực thể đầu vào (KafkaStrEvent, ProcessedEvent cho idempotency,\nCustomerSourceFolder, SourceExcelSet, CustomerDossier, CashFlowDiagram) và phần\nStrRecord U1 ghi — khớp schema ở contract-summary.md. rules.md có BR1.1–BR1.8\nrõ ràng, phủ các quyết định làm rõ (xác định loại KH theo file, chống trùng theo\neventID, thử nhiều business_code ECM, công thức dòng tiền theo US2, xử lý lỗi\nghi StrRecord + dừng). functional-spec.md có workflow 13 bước, state machine\nStrRecord, ER diagram dẫn xuất, và scenarios happy/unhappy. traceability.json\nphủ các AC của U1 (AC1.x, AC2.1) map tới BR tồn tại, có reverse giải thích BR1.2.\nNhất quán với quyết định bỏ walking skeleton. Các điểm dưới là gợi ý.\n\n### Findings\n\n**Prior findings**\n\n| ID | Now | Severity | Note |\n|---|---|---|---|\n\n**New findings**\n\n| Severity | Location | Finding | Required action |\n|---|---|---|---|\n| Low | BR1.6 / entities | Kiểu dữ liệu số tiền để mức logic (decimal); cần chốt độ chính xác/định dạng khi tính sum ở Code Generation để tránh sai số. | Chốt kiểu số ở Code Generation. |\n| Low | BR1.5 | Thử lần lượt mọi business_code có thể tốn thời gian; cân nhắc ghi lại business_code trúng để lần sau ưu tiên (tối ưu, không bắt buộc). | Cân nhắc ở Code Generation. |\n",
+  "recorded_at": "2026-10-09T07:35:37Z"
+}

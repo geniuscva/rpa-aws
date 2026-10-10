@@ -1,0 +1,12 @@
+{
+  "stage": "nfr-requirements",
+  "unit": "u3-data-entry-tracuuthue",
+  "upstream_ids": ["NFR2", "NFR3", "NFR4", "NFR5", "NFR7"],
+  "coverage": [
+    { "id": "NFR2", "status": "OK", "target": "PERF-U3-1" },
+    { "id": "NFR3", "status": "OK", "target": "REL-U3-1, REL-U3-2" },
+    { "id": "NFR4", "status": "OK", "target": "SEC-U3-1, SEC-U3-2" },
+    { "id": "NFR5", "status": "OK", "target": "OBS-U3-1" },
+    { "id": "NFR7", "status": "OK", "target": "SCAL-U3-1" }
+  ]
+}

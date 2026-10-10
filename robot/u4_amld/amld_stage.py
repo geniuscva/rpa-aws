@@ -67,6 +67,9 @@ class AmldStage:
 
         logger = context.logger
         
+        # Ánh xạ StrRecord với input/input.json nếu tồn tại
+        self._map_from_json(record, logger)
+        
         # Log thông tin StrRecord trước khi chạy U4 và đăng nhập
         logger.info("Thông tin StrRecord trước khi U4 xử lý", record_data=record.as_dict())
         
@@ -139,6 +142,57 @@ class AmldStage:
             endpoint=endpoint,
             password=password,
         )
+
+    def _map_from_json(self, record: StrRecord, logger) -> None:
+        import json
+        import os
+        
+        input_json_path = "input/input.json"
+        if not os.path.exists(input_json_path):
+            return
+            
+        try:
+            with open(input_json_path, "r", encoding="utf-8") as f:
+                data_list = json.load(f)
+                
+            for row in data_list:
+                if str(row.get("CIF", "")) == str(record.cif):
+                    logger.info("Tìm thấy CIF trong input.json, tiến hành ánh xạ dữ liệu.")
+                    
+                    def g(key: str) -> str:
+                        val = row.get(key)
+                        return str(val) if val not in (None, "") else ""
+                        
+                    record.ten_khach_hang = g("TENKH") or record.ten_khach_hang
+                    record.ma_so_thue = g("MASOTHUE") or record.ma_so_thue
+                    record.email_nguoi_lap_bao_cao = g("EMAIL_NGUOI_LAP_BAO_CAO") or record.email_nguoi_lap_bao_cao
+                    record.user_id_nguoi_lap_bao_cao = g("USER_ID_NGUOI_LAP_BAO_CAO") or record.user_id_nguoi_lap_bao_cao
+                    record.str_ma_bao_cao = g("STR_MA_BAO_CAO") or record.str_ma_bao_cao
+                    record.str_stk = g("STR_STK") or record.str_stk
+                    record.ngay_tiep_nhan = g("NGAYTIEPNHAN") or record.ngay_tiep_nhan
+                    record.ten_nguoi_lap_bao_cao = g("TEN_NGUOI_LAP_BAO_CAO") or record.ten_nguoi_lap_bao_cao
+                    record.sdt_lam_viec_nguoi_lap_bao_cao = g("SDT_LAM_VIEC_NGUOI_LAP_BAO_CAO") or record.sdt_lam_viec_nguoi_lap_bao_cao
+                    record.sdt_dd_nguoi_lap_bao_cao = g("SDT_DD_NGUOI_LAP_BAO_CAO") or record.sdt_dd_nguoi_lap_bao_cao
+                    
+                    record.ten_chi_nhanh = g("TEN_CHI_NHANH") or record.ten_chi_nhanh
+                    record.so_nha_duong_pho_chi_nhanh = g("SO_NHA_DUONG_PHO_CHI_NHANH") or record.so_nha_duong_pho_chi_nhanh
+                    record.phuong_xa_chi_nhanh = g("PHUONG/XA_CHI_NHANH") or record.phuong_xa_chi_nhanh
+                    record.tinh_thanh_pho_chi_nhanh = g("TINH/THANH_PHO_CHI_NHANH") or record.tinh_thanh_pho_chi_nhanh
+                    record.sdt_chi_nhanh = g("SDT_CHI_NHANH") or record.sdt_chi_nhanh
+                    record.phan_iv_loai_bao_cao_dang_ngo = g("PHAN_IV_LOẠI_BAO_CAO_DANG_NGO") or record.phan_iv_loai_bao_cao_dang_ngo
+                    record.phan_iv_dau_hieu_dang_ngo = g("PHAN_IV_DAU_HIEU_DANG_NGO") or record.phan_iv_dau_hieu_dang_ngo
+                    record.ngay_bat_dau = g("NGAY_BAT_DAU") or record.ngay_bat_dau
+                    record.ngay_ket_thuc = g("NGAY_KET_THUC") or record.ngay_ket_thuc
+                    record.phan_iv_3_phan_tich_ly_do_bao_cao = g("PHAN_IV_3_PHAN_TICH_LY_DO_BAO_CAO") or record.phan_iv_3_phan_tich_ly_do_bao_cao
+                    record.phan_iv_co_so_hop_ly_de_nghi_ngo = g("PHAN_IV_CO_SO_HOP_LY_DE_NGHI_NGO") or record.phan_iv_co_so_hop_ly_de_nghi_ngo
+                    record.phan_iv_nhan_dinh_loai_toi_pham = g("PHAN_IV_NHAN_DINH_LOAI_TOI_PHAM") or record.phan_iv_nhan_dinh_loai_toi_pham
+                    record.phan_v_cong_viec_xu_ly = g("PHAN_V_CONG_VIEC_XU_LY") or record.phan_v_cong_viec_xu_ly
+                    record.loaitien_sotien = g("LOAITIEN_SOTIEN") or record.loaitien_sotien
+                    
+                    logger.info("Đã ánh xạ dữ liệu từ input.json thành công")
+                    break
+        except Exception as e:
+            logger.warning("Lỗi khi đọc/map từ input.json", error=str(e))
 
     def _login_with_reload(self, port: AmldPortalPort, session: AmldSession) -> None:
         last: Optional[Exception] = None

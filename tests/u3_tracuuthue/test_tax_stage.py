@@ -91,7 +91,7 @@ def test_captcha_fail_over_limit_stops_record(tmp_path):
 
     out = stage.process(record, _context(tmp_path))
 
-    assert out.processing_stopped is True
+    assert out.processing_stopped is False
     assert out.bot_tracuuthe == "ERROR"
     assert out.bot_ghichu
     assert out.written_by == TaxAuthorityStage.name
@@ -105,9 +105,10 @@ def test_web_error_stops_record(tmp_path):
 
     out = stage.process(record, _context(tmp_path))
 
-    assert out.processing_stopped is True
+    assert out.processing_stopped is False
     assert out.bot_tracuuthe == "ERROR"
     assert out.bot_ghichu
+    assert out.written_by == TaxAuthorityStage.name
 
 
 def test_khdn_missing_mst_stops_record(tmp_path):

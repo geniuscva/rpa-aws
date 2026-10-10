@@ -68,10 +68,15 @@ class TaxAuthorityStage:
         try:
             result = client.lookup(tax_code)
         except TaxAuthorityError as exc:
-            # BR3.6: lỗi tra cứu → dừng record.
+            # BR3.6 (updated): lỗi tra cứu → không dừng record, vẫn chạy tiếp
             record.bot_tracuuthe = RESULT_ERROR
-            record.stop(self.name, f"Loi tra cuu Cuc Thue: {exc}")
-            logger.error("U3 lỗi tra cứu Cục Thuế", cif=record.cif, error=str(exc))
+            if record.bot_ghichu:
+                record.bot_ghichu += f" | Loi tra cuu Cuc Thue: {exc}"
+            else:
+                record.bot_ghichu = f"Loi tra cuu Cuc Thue: {exc}"
+            record.written_by = self.name
+            logger.error("U3 lỗi tra cứu Cục Thuế (vẫn chạy tiếp)", cif=record.cif, error=str(exc))
+            # Bỏ record.stop() để pipe chạy sang bước tiếp theo
             return record
         finally:
             if hasattr(port, 'close'):

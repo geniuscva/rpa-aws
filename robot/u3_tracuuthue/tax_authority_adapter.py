@@ -211,7 +211,7 @@ class PlaywrightTaxAuthorityPort:
         page.click(self.SUBMIT_SELECTOR)
         
         # Đợi trang bắt đầu xử lý request để tránh check quá nhanh
-        page.wait_for_timeout(10000)
+        page.wait_for_timeout(3000)
         
         # Wait for either result, error, or not_found
         import time

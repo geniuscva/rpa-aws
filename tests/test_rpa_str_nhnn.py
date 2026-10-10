@@ -10,6 +10,7 @@ from kafka import KafkaProducer
 
 # ĐƯỜNG DẪN CẤU HÌNH CHO BOT
 BOT_DIR = "/Users/khanhnguyen/Downloads/rpa-aws"
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
 LOG_FILE_PATH = os.path.join(BOT_DIR, "logs", "bot_execution.log")
 LUY_KE_T_PATH = os.path.join(BOT_DIR, "data", "LuyKe_Thang_T.xlsx")
 LUY_KE_T_MINUS_1_PATH = os.path.join(BOT_DIR, "data", "LuyKe_Thang_T-1.xlsx")
@@ -20,7 +21,9 @@ class TestMinibotSTRNHNNValidateInput:
     def setup_method(self):
         """Hàm này chạy trước mỗi test case để dọn dẹp dữ liệu cũ và chuẩn bị Kafka"""
         # Xóa file log cũ và data cũ nếu có
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
         if os.path.exists(LOG_FILE_PATH):
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
             os.remove(LOG_FILE_PATH)
         data_dir = os.path.join(BOT_DIR, "data")
         if os.path.exists(data_dir):
@@ -47,7 +50,9 @@ class TestMinibotSTRNHNNValidateInput:
         os.makedirs(evidence_dir, exist_ok=True)
         
         # Lưu lại file log của Bot
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
         if os.path.exists(LOG_FILE_PATH):
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
             shutil.copy(LOG_FILE_PATH, os.path.join(evidence_dir, "bot_execution.log"))
             
         # Lưu lại TOÀN BỘ thư mục data để làm evidence (bất kể bot sinh file tên gì)
@@ -91,6 +96,7 @@ class TestMinibotSTRNHNNValidateInput:
         
         # WHEN: Các bước thực hiện
         try:
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
             with open(LOG_FILE_PATH, 'w') as log_f:
                 subprocess.run([sys.executable, "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:
@@ -98,7 +104,9 @@ class TestMinibotSTRNHNNValidateInput:
             
         # THEN: Kết quả mong muốn - Gửi mail cảnh báo lỗi cho nghiệp vụ và AM
         # Kiểm tra file log xem bot có ghi nhận việc lấy dữ liệu thất bại không
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
         if os.path.exists(LOG_FILE_PATH):
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
             with open(LOG_FILE_PATH, 'r', encoding='utf-8') as f:
                 logs = f.read()
                 # Kiểm tra nội dung log, nếu trong thực tế bot ghi "Lỗi" hoặc "Không có CIF"
@@ -117,6 +125,7 @@ class TestMinibotSTRNHNNValidateInput:
 
         # WHEN: Các bước thực hiện
         try:
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
             with open(LOG_FILE_PATH, 'w') as log_f:
                 subprocess.run([sys.executable, "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:
@@ -139,6 +148,7 @@ class TestMinibotSTRNHNNValidateInput:
 
         # WHEN: Các bước thực hiện
         try:
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
             with open(LOG_FILE_PATH, 'w') as log_f:
                 subprocess.run([sys.executable, "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:
@@ -166,6 +176,7 @@ class TestMinibotSTRNHNNValidateInput:
 
         # WHEN: Các bước thực hiện
         try:
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
             with open(LOG_FILE_PATH, 'w') as log_f:
                 subprocess.run([sys.executable, "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:
@@ -196,6 +207,7 @@ class TestMinibotSTRNHNNValidateInput:
 
         # WHEN: Các bước thực hiện
         try:
+        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
             with open(LOG_FILE_PATH, 'w') as log_f:
                 subprocess.run([sys.executable, "main.py"], cwd=BOT_DIR, timeout=15, stdout=log_f, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:

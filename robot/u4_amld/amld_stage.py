@@ -66,6 +66,10 @@ class AmldStage:
             return record
 
         logger = context.logger
+        
+        # Log thông tin StrRecord trước khi chạy U4 và đăng nhập
+        logger.info("Thông tin StrRecord trước khi U4 xử lý", record_data=record.as_dict())
+        
         port = self._port_factory(context)
 
         try:

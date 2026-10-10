@@ -246,19 +246,30 @@ class PlaywrightAmldPortalPort:
             _fill_iv("textarea_ly_do", "phan_iv_3_phan_tich_ly_do_bao_cao")
             
             loai_bao_cao = str(data.get("phan_iv_loai_bao_cao_dang_ngo", "")).strip().upper()
-            if loai_bao_cao and loai_bao_cao in PART_IV_SELECTORS["report_classification"]:
-                page.locator(PART_IV_SELECTORS["report_classification"][loai_bao_cao]).check()
+            if loai_bao_cao:
+                for lb in loai_bao_cao.split("/"):
+                    lb = lb.strip()
+                    if lb in PART_IV_SELECTORS["report_classification"]:
+                        page.locator(PART_IV_SELECTORS["report_classification"][lb]).check(force=True)
                 
             toi_pham = str(data.get("phan_iv_nhan_dinh_loai_toi_pham", "")).strip()
             if toi_pham:
-                if toi_pham in PART_IV_SELECTORS["crime_code"]:
-                    page.locator(PART_IV_SELECTORS["crime_code"][toi_pham]).check()
-                else:
-                    page.locator(PART_IV_SELECTORS["crime_code"]["30"]).check()
-                    page.locator(PART_IV_SELECTORS["input_toi_pham_khac"]).fill(toi_pham)
+                has_khac = False
+                khac_texts = []
+                for tp in toi_pham.split("/"):
+                    tp = tp.strip()
+                    if tp in PART_IV_SELECTORS["crime_code"]:
+                        page.locator(PART_IV_SELECTORS["crime_code"][tp]).check(force=True)
+                    elif tp:
+                        has_khac = True
+                        khac_texts.append(tp)
+                        
+                if has_khac:
+                    page.locator(PART_IV_SELECTORS["crime_code"]["30"]).check(force=True)
+                    page.locator(PART_IV_SELECTORS["input_toi_pham_khac"]).fill(", ".join(khac_texts))
             
             try:
-                page.locator(PART_IV_SELECTORS["radio_trang_thai_gd"]).check()
+                page.locator(PART_IV_SELECTORS["radio_trang_thai_gd"]).check(force=True)
             except Exception:
                 pass
                 
@@ -269,7 +280,7 @@ class PlaywrightAmldPortalPort:
             
         if btn_save:
             # Ignore UI validation/toast errors as we are just clicking save for now
-            page.locator(btn_save).click()
+            page.locator(btn_save).click(force=True)
             page.wait_for_timeout(2000)
 
     def set_ticks(self, section: str, values: list) -> None:  # pragma: no cover
@@ -280,12 +291,12 @@ class PlaywrightAmldPortalPort:
             for val in values:
                 selector = PART_IV_SELECTORS["warning_sign"].get(str(val))
                 if selector:
-                    page.locator(selector).check()
+                    page.locator(selector).check(force=True)
         elif section == "V":
             for val in values:
                 selector = PART_V_SELECTORS["action_code"].get(str(val))
                 if selector:
-                    page.locator(selector).check()
+                    page.locator(selector).check(force=True)
 
     def upload(self, files: list[str]) -> int:
         page = self._ensure_page()

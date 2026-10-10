@@ -9,7 +9,7 @@ import time
 from kafka import KafkaProducer
 
 # ĐƯỜNG DẪN CẤU HÌNH CHO BOT
-BOT_DIR = "/Users/khanhnguyen/Downloads/rpa-aws"
+BOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_FILE_PATH = os.path.join(BOT_DIR, "logs", "bot_execution.log")
 os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
 LUY_KE_T_PATH = os.path.join(BOT_DIR, "data", "LuyKe_Thang_T.xlsx")

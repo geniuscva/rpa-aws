@@ -217,18 +217,42 @@ class Runner:
         run = self.repo.get_run(run_id)
         if run is None:
             return None
+            
+        robot = self.repo.get_robot(run["robot_id"])
         path = run.get("log_path")
-        if not path:
+        
+        text_parts = []
+        
+        if path:
+            try:
+                size = os.path.getsize(path)
+                with open(path, "rb") as fh:
+                    if size > MAX_LOG_BYTES:
+                        fh.seek(size - MAX_LOG_BYTES)
+                    data = fh.read()
+                text_parts.append(f"--- KẾT QUẢ CHẠY (STDOUT) ---\n{data.decode('utf-8', errors='replace')}")
+            except FileNotFoundError:
+                text_parts.append("--- KẾT QUẢ CHẠY (STDOUT) ---\n(Không tìm thấy file log)")
+            except OSError:
+                logger.exception("Cannot read log %s", path)
+                text_parts.append("[robot-ops] Cannot read log file")
+
+        if robot.get("workdir"):
+            custom_log_path = Path(robot["workdir"]) / "logs" / "robot.json.log"
+            try:
+                size = os.path.getsize(custom_log_path)
+                with open(custom_log_path, "rb") as fh:
+                    if size > MAX_LOG_BYTES:
+                        fh.seek(size - MAX_LOG_BYTES)
+                    data = fh.read()
+                text_parts.append(f"\n--- LOG CỦA ROBOT (robot.json.log) ---\n{data.decode('utf-8', errors='replace')}")
+            except FileNotFoundError:
+                text_parts.append(f"\n--- LOG CỦA ROBOT (robot.json.log) ---\n(Chưa có file log này tại {custom_log_path})")
+            except OSError:
+                logger.exception("Cannot read log %s", custom_log_path)
+                text_parts.append(f"\n[robot-ops] Lỗi không thể đọc file: {custom_log_path}")
+
+        if not text_parts:
             return ""
-        try:
-            size = os.path.getsize(path)
-            with open(path, "rb") as fh:
-                if size > MAX_LOG_BYTES:
-                    fh.seek(size - MAX_LOG_BYTES)
-                data = fh.read()
-        except FileNotFoundError:
-            return ""
-        except OSError:
-            logger.exception("Cannot read log %s", path)
-            return "[robot-ops] Cannot read log file"
-        return data.decode("utf-8", errors="replace")
+            
+        return "\n".join(text_parts)

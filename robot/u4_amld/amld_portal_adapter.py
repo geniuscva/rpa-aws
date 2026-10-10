@@ -164,8 +164,8 @@ class PlaywrightAmldPortalPort:
             # Check for hanging
             raise AmldLoginHung("đăng nhập treo hoặc không thể truy cập URL")
             
-        page.locator(LOGIN_SELECTORS["username"]).press_sequentially(session.username, delay=300)
-        page.locator(LOGIN_SELECTORS["password"]).press_sequentially(session.password, delay=300)
+        page.locator(LOGIN_SELECTORS["username"]).fill(session.username)
+        page.locator(LOGIN_SELECTORS["password"]).fill(session.password)
         page.wait_for_timeout(1000)
         page.click(LOGIN_SELECTORS["btn_login"])
         
@@ -214,7 +214,7 @@ class PlaywrightAmldPortalPort:
             def _fill_i(k_selector: str, k_data: str) -> None:
                 val = data.get(k_data)
                 if val:
-                    page.locator(PART_I_SELECTORS[k_selector]).fill(str(val))
+                    page.locator(PART_I_SELECTORS[k_selector]).fill(str(val), force=True)
                     
             _fill_i("input_ma_bc_noi_bo", "str_ma_bao_cao")
             _fill_i("input_ten_chinhanh", "ten_chi_nhanh")
@@ -235,7 +235,7 @@ class PlaywrightAmldPortalPort:
             def _fill_iv(k_selector: str, k_data: str) -> None:
                 val = data.get(k_data)
                 if val:
-                    page.locator(PART_IV_SELECTORS[k_selector]).fill(str(val))
+                    page.locator(PART_IV_SELECTORS[k_selector]).fill(str(val), force=True)
 
             _fill_iv("input_ngay_bat_dau", "ngay_bat_dau")
             _fill_iv("input_ngay_ket_thuc", "ngay_ket_thuc")
@@ -326,7 +326,7 @@ class PlaywrightAmldPortalPort:
             
             if desc:
                 try:
-                    page.locator(PART_VI_SELECTORS["input_attachment_description"]).press_sequentially(desc, delay=100)
+                    page.locator(PART_VI_SELECTORS["input_attachment_description"]).fill(desc, force=True)
                 except Exception:
                     pass
 

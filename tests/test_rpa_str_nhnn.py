@@ -60,10 +60,16 @@ class TestMinibotSTRNHNNValidateInput:
         
         
     def produce_cif(self, cif_value):
-        """Hàm phụ trợ đẩy message chứa mã CIF vào Kafka"""
+        """Hàm phụ trợ đẩy message chứa mã CIF vào Kafka với đúng format chuẩn"""
         if self.producer:
             try:
-                msg = {"CIF": cif_value}
+                import time
+                msg = {
+                    "eventID": f"evt-{int(time.time())}",
+                    "eventName": "LIST_CUST_STR",
+                    "cif": str(cif_value),
+                    "timeStamp": str(time.time())
+                }
                 self.producer.send(KAFKA_TOPIC, msg)
                 self.producer.flush(timeout=2.0)
                 time.sleep(1) # Chờ 1 chút để message kịp đẩy vào queue

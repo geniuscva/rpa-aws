@@ -9,7 +9,10 @@ import time
 from kafka import KafkaProducer
 
 # ĐƯỜNG DẪN CẤU HÌNH CHO BOT
-BOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if os.path.exists("/Users/khanhnguyen/Downloads/rpa-aws"):
+    BOT_DIR = "/Users/khanhnguyen/Downloads/rpa-aws"
+else:
+    BOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_FILE_PATH = os.path.join(BOT_DIR, "logs", "bot_execution.log")
 os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
 LUY_KE_T_PATH = os.path.join(BOT_DIR, "data", "LuyKe_Thang_T.xlsx")
@@ -30,14 +33,21 @@ class TestMinibotSTRNHNNValidateInput:
                     pass # Không xóa các file cấu hình, chỉ dọn dẹp file kết quả
 
             
-        # Khởi tạo Kafka Producer
+        # Khởi tạo Kafka Producer (kiểm tra nhanh socket để tránh timeout kéo dài nếu Kafka chưa bật)
+        self.producer = None
         try:
-            self.producer = KafkaProducer(
-                bootstrap_servers=['localhost:9092'],
-                value_serializer=lambda v: json.dumps(v).encode('utf-8'),
-                request_timeout_ms=2000,
-                max_block_ms=2000
-            )
+            import socket
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(0.3)
+            is_open = sock.connect_ex(('127.0.0.1', 9092)) == 0
+            sock.close()
+            if is_open:
+                self.producer = KafkaProducer(
+                    bootstrap_servers=['localhost:9092'],
+                    value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+                    request_timeout_ms=2000,
+                    max_block_ms=2000
+                )
         except Exception:
             self.producer = None
             

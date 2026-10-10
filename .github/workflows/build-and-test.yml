@@ -1,0 +1,66 @@
+name: AIDLC Build and Test
+
+on:
+  push:
+    branches: [ "main", "master", "khanhnt3" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    # Khởi tạo Kafka services ngay trong Pipeline
+    services:
+      zookeeper:
+        image: confluentinc/cp-zookeeper:7.4.4
+        env:
+          ZOOKEEPER_CLIENT_PORT: 2181
+          ZOOKEEPER_TICK_TIME: 2000
+        ports:
+          - 2181:2181
+      kafka:
+        image: confluentinc/cp-kafka:7.4.4
+        env:
+          KAFKA_BROKER_ID: 1
+          KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+          KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+          KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+          KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+          KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+          KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+        ports:
+          - 9092:9092
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.9"
+        
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pytest-html pandas openpyxl kafka-python pyyaml
+        
+    # Chuẩn bị dummy config
+    - name: Prepare Config
+      run: |
+        mkdir -p data
+        echo "dummy: value" > data/config.yaml
+
+    - name: Run E2E Integration Tests
+      run: |
+        # Chạy Pytest và xuất report HTML
+        pytest -v tests/test_rpa_str_nhnn.py --html=report.html --self-contained-html
+        
+    - name: Upload Test Report & Evidence
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-evidence
+        path: |
+          report.html
+          evidence/

@@ -1,0 +1,37 @@
+[
+  {
+    "Test_ID": "RPA-32562",
+    "Summary": "[MINIBOT STR_NHNN_ValidateInput_Enqueue]_Kiểm tra luồng xử lý BOT _ TH BOT lấy dữ liệu thất bại",
+    "Precondition": "BOT lấy dữ liệu thất bại",
+    "Steps": "1. Run BOT thỏa mãn Pre-condition\n2. Kiểm tra hành xử của BOT",
+    "Expected_Result": "Gửi mail cảnh báo lỗi cho nghiệp vụ và AM"
+  },
+  {
+    "Test_ID": "RPA-32563",
+    "Summary": "[MINIBOT STR_NHNN_ValidateInput_Enqueue]_Kiểm tra tạo file theo dõi lũy kế hàng tháng_TH đã tồn tại file lũy kế tháng T",
+    "Precondition": "Tồn tại file lũy kế tháng T",
+    "Steps": "1. Run BOT thỏa mãn Pre-condition\n2. Kiểm tra hành xử của BOT",
+    "Expected_Result": "1. BOT không thực hiện tạo file lũy kế tháng T\n2. Thực hiện copy file lũy kế tháng T từ databank về local"
+  },
+  {
+    "Test_ID": "RPA-32564",
+    "Summary": "[MINIBOT STR_NHNN_ValidateInput_Enqueue]_Kiểm tra tạo file theo dõi lũy kế hàng tháng_TH CHƯA tồn tại file lũy kế tháng T",
+    "Precondition": "Chưa tồn tại file lũy kế tháng T",
+    "Steps": "1. Run BOT thỏa mãn Pre-condition\n2. Kiểm tra hành xử của BOT",
+    "Expected_Result": "1. BOT thực hiện tạo file lũy kế tháng T\n2. Chuyển B2. Kiểm tra điều kiện cut off dữ liệu file lũy kế"
+  },
+  {
+    "Test_ID": "RPA-32565",
+    "Summary": "[MINIBOT STR_NHNN_ValidateInput_Enqueue]_Kiểm tra điều kiện cut off dữ liệu file lũy kế_TH tồn tại file lũy kế tháng T-1 và có dữ liệu thỏa mãn điều kiện cut off",
+    "Precondition": "TH tồn tại file lũy kế tháng T-1_x000D_\nData thỏa mãn điều kiện:_x000D_\n+ BOT- TINHTRANGTRASOAT = \"Đang xử lý\"",
+    "Steps": "1. Run BOT thỏa mãn Pre-condition\n2. Kiểm tra hành xử của BOT",
+    "Expected_Result": "BOT thực hiện cut off dữ lũy kế thỏa mãn điều kiện cut of từ tháng T-1 sang tháng T\nBOT chuyển bước Kiểm tra add dữ liệu vào file lũy kế"
+  },
+  {
+    "Test_ID": "RPA-32566",
+    "Summary": "[MINIBOT STR_NHNN_ValidateInput_Enqueue]_Kiểm tra điều kiện cut off dữ liệu file lũy kế_TH tồn tại file lũy kế tháng T-1 và có dữ liệu thỏa mãn điều kiện cut off",
+    "Precondition": "TH tồn tại file lũy kế tháng T-1_x000D_\nData thỏa mãn điều kiện:_x000D_\n+ BOT- TINHTRANGTRASOAT = NULL",
+    "Steps": "1. Run BOT thỏa mãn Pre-condition\n2. Kiểm tra hành xử của BOT",
+    "Expected_Result": "BOT thực hiện cut off dữ lũy kế thỏa mãn điều kiện cut of từ tháng T-1 sang tháng T\nBOT chuyển bước Kiểm tra add dữ liệu vào file lũy kế"
+  }
+]

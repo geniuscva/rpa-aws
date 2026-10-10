@@ -77,6 +77,10 @@ class AccuityConfig:
     password: str = "admin"
 
 @dataclass
+class TaxAuthorityConfig:
+    captcha_retry: int = 10
+
+@dataclass
 class Config:
     source_root: str = "/Users/hainguyen/Projects/RPA/AMLD"
     output_root: str = "./output"
@@ -85,6 +89,7 @@ class Config:
     logging: LoggingConfig = field(default_factory=LoggingConfig)
     amld: AmldConfig = field(default_factory=AmldConfig)
     accuity: AccuityConfig = field(default_factory=AccuityConfig)
+    tax_authority: TaxAuthorityConfig = field(default_factory=TaxAuthorityConfig)
 
 
 class ConfigError(Exception):
@@ -117,9 +122,12 @@ def _from_dict(raw: dict[str, Any]) -> Config:
     accuity_raw = raw.get("accuity", {}) or {}
 
     amld_raw = raw.get("amld", {}) or {}
+    tax_authority_raw = raw.get("tax_authority", {}) or {}
 
     amld_defaults = AmldConfig()
     accuity_defaults = AccuityConfig()
+    tax_authority_defaults = TaxAuthorityConfig()
+    
     cfg = Config(
         source_root=raw.get("source_root", Config.source_root),
         output_root=raw.get("output_root", Config.output_root),
@@ -178,6 +186,9 @@ def _from_dict(raw: dict[str, Any]) -> Config:
             base_url=accuity_raw.get("base_url", accuity_defaults.base_url),
             username=accuity_raw.get("username", accuity_defaults.username),
             password=accuity_raw.get("password", accuity_defaults.password),
+        ),
+        tax_authority=TaxAuthorityConfig(
+            captcha_retry=int(tax_authority_raw.get("captcha_retry", tax_authority_defaults.captcha_retry))
         ),
     )
     return cfg

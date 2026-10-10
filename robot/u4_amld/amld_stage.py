@@ -28,7 +28,7 @@ RESULT_OK = "OK"
 RESULT_ERROR = "ERROR"
 
 # Thứ tự nhập các Phần — Phần III CỐ TÌNH không có trong danh sách (BR4.2).
-SECTION_ORDER = ("I", "II", "IV", "V", "VI")
+SECTION_ORDER = ("I",)
 
 # Tập giá trị tick hợp lệ mặc định cho Phần IV/V (số thứ tự công việc 1..8).
 DEFAULT_ALLOWED_SECTION_IV = frozenset(range(1, 9))
@@ -94,22 +94,24 @@ class AmldStage:
             self._fill_sections(port, record)
             logger.info("Nhập form xong, chuẩn bị upload")
 
-            # BR4.4: upload Phần VI đúng thứ tự.
-            ordered_names = self._attachments.ordered(attachment_names)
-            ordered_paths = []
-            for name in ordered_names:
-                for p in record.dossier_pdf_paths:
-                    if os.path.basename(p) == name:
-                        ordered_paths.append(p)
-                        break
+            # Bỏ qua upload và submit để test xong Tab 1 chuyển thẳng sang U5
+            # ordered_names = self._attachments.ordered(attachment_names)
+            # ordered_paths = []
+            # for name in ordered_names:
+            #     for p in record.dossier_pdf_paths:
+            #         if os.path.basename(p) == name:
+            #             ordered_paths.append(p)
+            #             break
+            # 
+            # for path in ordered_paths:
+            #     logger.info("Upload file đính kèm", file=os.path.basename(path))
+            #     self._retry.run(lambda p=path: port.upload([p]), f"upload {os.path.basename(path)}")
+            # 
+            # # Nộp, ghi trạng thái tra soát (BR4.10).
+            # logger.info("Nộp báo cáo")
+            # trasoat = self._retry.run(port.submit, "nộp báo cáo")
+            trasoat = "Bản nháp (Test Tab 1 xong, chuyển U5)"
 
-            for path in ordered_paths:
-                logger.info("Upload file đính kèm", file=os.path.basename(path))
-                self._retry.run(lambda p=path: port.upload([p]), f"upload {os.path.basename(path)}")
-
-            # Nộp, ghi trạng thái tra soát (BR4.10).
-            logger.info("Nộp báo cáo")
-            trasoat = self._retry.run(port.submit, "nộp báo cáo")
             record.bot_almd = RESULT_OK
             record.bot_tinhtrangtrasoat = trasoat
             record.written_by = self.name

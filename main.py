@@ -12,6 +12,7 @@ from robot.u2_accuity.accuity_stage import AccuityStage
 from robot.u2_accuity.accuity_adapter import PlaywrightAccuityPort
 from robot.u3_tracuuthue.tax_stage import TaxAuthorityStage
 from robot.u3_tracuuthue.tax_authority_adapter import PlaywrightTaxAuthorityPort
+from robot.u3_tracuuthue.captcha_solver import CaptchaSolver
 from robot.u4_amld.amld_stage import AmldStage
 from robot.u4_amld.amld_portal_adapter import PlaywrightAmldPortalPort
 from robot.u5_tonghop.tonghop_stage import TongHopStage
@@ -45,7 +46,10 @@ def main():
     stages = [
         ConsumeDataStage(ecm_client_factory=lambda cif, out_dir: EcmClientAdapter(config.ecm, logger, HttpxEcmTransport(), out_dir)),
         AccuityStage(port_factory=lambda ctx: PlaywrightAccuityPort(ctx.config, ctx.logger)),
-        TaxAuthorityStage(port_factory=lambda ctx: PlaywrightTaxAuthorityPort(ctx.config, ctx.logger)),
+        TaxAuthorityStage(
+            port_factory=lambda ctx: PlaywrightTaxAuthorityPort(ctx.config, ctx.logger),
+            captcha_solver_factory=lambda ctx: CaptchaSolver(max_attempts=ctx.config.tax_authority.captcha_retry)
+        ),
         AmldStage(port_factory=lambda ctx: PlaywrightAmldPortalPort(ctx.config, ctx.logger))
     ]
 
